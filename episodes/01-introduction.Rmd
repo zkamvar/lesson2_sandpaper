@@ -102,7 +102,7 @@ To use the functions contained in Pandas they need to be imported. Our dataset i
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(reticulate)
-use_python("/usr/local/bin/python3.10")
+#use_python("/usr/local/bin/python3.10")
 
 
 ```
