@@ -106,14 +106,11 @@ To use the functions contained in Pandas they need to be imported. Our dataset i
 
 ```python
 import sys
-print(sys.verion)
+print(sys.version)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'sys' has no attribute 'verion'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
 ```
 
 
