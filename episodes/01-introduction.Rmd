@@ -111,7 +111,7 @@ library(reticulate)
 
 ```{python}
 import sys
-print(sys.verion)
+print(sys.version)
 ```
 
 
