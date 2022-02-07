@@ -107,6 +107,14 @@ library(reticulate)
 
 ```
 
+
+
+```{python}
+import sys
+print(sys.verion)
+```
+
+
 ```{python}
 from pandas import read_csv
 ```
