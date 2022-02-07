@@ -1,111 +1,1852 @@
 ---
-title: "Using RMarkdown"
-teaching: 10
+title: "DataFrames 1"
+teaching: 6
 exercises: 2
+output: pdf_document
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using R Markdown and `{sandpaper}`?
+- How to use dataframes in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with the new lesson template
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
-
+- Import data set as dataframe
+- Inspect data frame and access data
+- Produce an overview of data features
+- Create data plots using matplotlib
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Video Tutorials
+
+### Pandas Dataframes - Import and Data Handling
+
+<p align = "center">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/wPiNrk6zpHc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+
+### Pandas Dataframes - Visualisation 
+
+<p align = "center">
+<iframe width="400" height="225" src="https://www.youtube.com/embed/QviydJKaSro" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
 
 ## Introduction
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+This is our first lesson on learning and understanding dataframes in Python.
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson template:
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
 
 :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
+The diabetes data set is one of the challenging task.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-::::::::::::::::::::::::::::::::::::: challenge 
 
-## Challenge 1: Can you do it?
+## Challenge: The diabetes data set
 
-What is the output of this command?
+Here is a screenshot of the so-called diabetes data set. It is taken from 
+[this webpage](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt) and it is one of the [example data sets](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) used to illustrate machine learning functionality in scikit-learn (Part III and Part IV of the course). 
 
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
-
-:::::::::::::::::::::::::::::::::
+![](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/diabetes_data_screenshot.png "Screenshot of Diabetes Data")
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
+This figure captures only the top part of the data. On the webpage you need to scroll down considerably to view the whole content. Thus, to get an __overview__ of the dataset is the first main task in Data Science. 
 
-:::::::::::::::::::::::: solution 
+::::::::::::::::::::::::::::::::::::: callout 
 
-You can add a line with at least three colons and a `solution` tag.
+## The lesson
 
-:::::::::::::::::::::::::::::::::
+- introduces code to read and inspect the data
+- works with a specific data frame and extracts some techniques to get an overview
+- discusses the concept 'distribution' as a way of summarising data in a single figure
+
+
+
+:::::::: checklist
+
+### To get to know a dataset you need to
+
+- access the data
+- check the content
+- produce a summary of basic properties
+
+::::::::
+
+In this lesson we will only look at univariate features where each data column is studied independently of the others. Further properties and bivariate features will be the topic of the next lesson. 
+
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Figures
 
-You can also include figures generated from R Markdown:
+## Work Through Example
+
+:::::::::::::::::::::::::::::::::::::::::::::::: discussion
+
+## Reading data into a Pandas DataFrame
+
+The small practice data file for this section is called 'everleys_data.csv' and can be downloaded using the link given above in "Materials for this Lesson". To start, please create a subfolder called 'data' in the current directory and put the data file in it. It can now be accessed using the relative path 'data/everleys_data.csv' or 'data\everleys_data.csv', respectively.
+
+The file 'everleys_data.csv' contains blood concentrations of calcium and sodium ions from 17 patients with Everley's syndrome. The data are taken from a [BMJ statistics tutorial](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/7-t-tests). The data are stored as comma-separated values (csv), two values for each patient.
+
+To get to know a dataset, we will use the Pandas package and the Matplotlib plotting. The Pandas package for data science is included in the Anaconda distribution of Python. Check this [link for installation instructions](https://pandas.pydata.org/getting_started.html) to get started. 
+
+If you are not using the Anaconda distribution, pease refer to [these guidelines](https://pandas.pydata.org/docs/getting_started/install.html). 
+
+To use the functions contained in Pandas they need to be imported. Our dataset is in '.csv' format, and we therefore need to read it from a csv file. For this, we import the function `read_csv`. This will create a _Pandas dataframe_.
+
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-```r
-pie(
-  c(Sky = 78, "Sunny side of pyramid" = 17, "Shady side of pyramid" = 5), 
-  init.angle = 315, 
-  col = c("deepskyblue", "yellow", "yellow3"), 
-  border = FALSE
-)
+
+
+```python
+from pandas import read_csv
 ```
 
-<div class="figure" style="text-align: center">
-<img src="fig/01-introduction-rendered-pyramid-1.png" alt="pie chart illusion of a pyramid"  />
-<p class="caption">Sun arise each and every morning</p>
-</div>
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
 
-Or you can use standard markdown for static figures with the following syntax:
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
 
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
 
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
 
-## Math
+Executing this code does not lead to any output on the screen. However, the function is now ready to be used. To use it, we type its name and provide the required arguments. The following code should import the Everley's data into your JupyterLab notebook (or other Python environment):
 
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
 
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
+```python
+# for Mac OSX and Linux
+# (please go to the next cell if using Windows)
 
-Cool, right?
+df = read_csv("/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv") 
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+```python
+# please uncomment for Windows
+# (please go to previous cell if using Mac OSX or Linux)
+
+# df = read_csv("data\everleys_data.csv") 
+
+```
+
+This code uses the `read_csv` function from Pandas to read data from a data file, in this case a file with extension '.csv'. Note that the location of the data file is specified within quotes by the relative path to the subfolder 'data' followed by the file name. Use the JupyterLab file browser to check that subfolder exists and has the file in it.
+
+![](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/subfolder_data.png "Screenshot of subfolder 'data' ")
+
+
+After execution of the code, the data are contained in a variable called `df`. This is a structure referred to as a Pandas _DataFrame_. 
+
+> A [__Pandas dataframe__](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe) is a 2-dimensional labeled data structure with columns of potentially different types. You can think of it as a spreadsheet. 
+
+
+To see the contents of `df`, simply use:
+
+
+
+```python
+df
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+(Compare with the result of `print(df)` which displays the contents in a different format.) 
+
+The output shows in the first column an index, integers from 0 to 17; and the calcium and sodium concentrations in columns 2 and 3, respectively. The default indexing starts from zero (Python is a 'zero-based' programming language).
+
+In a dataframe, the first column is referred to as _Indices_, the first row is referred to as _Labels_. Note that the row with the labels is excluded from the row count. Similarly, the row with the indices is excluded from the column count. 
+
+
+For large data sets, the function `head` is a convenient way to get a feel of the dataset.
+
+
+
+```python
+df.head()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+Without any input argument, this displays the first five data lines of the dataframe. You can specify alter the number of rows displayed by including a single integer as argument, e.g. `head(10)`.
+
+If you feel there are too many decimal places in the default view, you can restrict their number by using the `round` function:
+
+
+
+```python
+df.head().round(2)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+While we can see how many rows there are in a dataframe when we display the whole data frame and look at the last index, there is a convenient way to obtain the number directly:
+
+
+
+```python
+no_rows = len(df)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Data frame has', no_rows, 'rows')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+You could see above, that the columns of the dataframe have labels. To see all labels:
+
+
+
+```python
+column_labels = df.columns
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print(column_labels)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'column_labels' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+Now we can count the labels to obtain the number of columns:
+
+
+
+```python
+no_columns = len(column_labels)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'column_labels' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Data frame has', no_columns, 'columns')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_columns' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+And if you want to have both the number of the rows and the columns together, use `shape`. Shape returns a tuple of two numbers, first the number of rows, then the number of columns.
+
+
+
+```python
+df_shape = df.shape
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Data frame has', df_shape[0], 'rows and',df_shape[1],  'columns')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_shape' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+Notice that `shape` (like `columns`) is not followed by round parenthesis. It is not a function that can take arguments. Technically, `shape` is a 'property' of the dataframe.
+
+
+To find out what data type is contained in each of the columns, us `dtypes`, another 'property':
+
+
+
+```python
+df.dtypes
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+In this case, both columns contain floating point (decimal) numbers.
+
+
+:::::::::::::::::::::::: challenge
+
+## DIY1: Read data into a dataframe
+   
+Download the data file 'loan_data.csv' using the link given above in "Materials for this Lesson". It contains data that can be used for the assessment of loan applications. Read the data into a DataFrame. It is best to assign it a name other than 'df' (to avoid overwriting the Evereley data set). 
+
+Display the first ten rows of the Loan data set to see its contents. It is taken from a [tutorial on Data Handling in Python](https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/) which you might find useful for further practice. 
+
+
+From this exercise we can see that a dataframe can contain different types of data: real numbers (e.g. LoanAmount), integers (ApplicantIncome), categorical data (Gender), and strings (Loan_ID). 
+
+::::::::::::::::: solution
+
+
+```python
+from pandas import read_csv
+
+# dataframe from .csv file
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+df_loan = read_csv("data/loan_data.csv") 
+
+# display contents
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df_loan.head(10)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+::::::::::::::::: 
+::::::::::::::::::::::::
+
+## Accessing data in a DataFrame
+
+If a datafile is large and you only want to check the format of data in a specific column, you can limit the display to that column.
+To access data contained in a specific column of a dataframe, we can use a similar convention as in a Python dictionary, treating the column names as 'keys'. E.g. to show all rows in column 'Calcium', use:
+
+
+
+```python
+df['calcium']
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+To access individual rows of a column we use two pairs of square brackets:
+
+
+```python
+df['calcium'][0:3]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+Here all rules for [slicing](https://docs.python.org/3/tutorial/introduction.html) can be applied.
+As for lists and tuples, the indexing of rows is semi-inclusive, lower boundary included, upper boundary excluded.
+Note that the first pair of square brackets refers to a column and the second pair refers to the rows. This is different from e.g. accessing items in a nested list.
+
+Accessing items in a Pandas dataframe is analogous to accessing the values in a Python dictionary by referring to its keys.
+
+
+To access non-contiguous elements, we use an additional pair of square brackets (as if for a list within a list):
+
+
+```python
+df['calcium'][[1, 3, 7]]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+Another possibility to index and slice a dataframe is the use of the 'index location' or `iloc` property. It refers first to rows and then to columns by index, all within a single pair of brackets. For example, to get all rows `:` of the first column (index `0`), you use:
+
+
+
+
+```python
+df.iloc[:, 0]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+To display only the first three calcium concentrations, you use slicing, remembering that the upper bound is excluded):
+
+
+
+```python
+df.iloc[0:3, 0]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+To access non-consecutive values, we can use a pair of square brackets within the pair of square brackets: 
+
+
+```python
+df.iloc[[2, 4, 7], 0]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+Similarly, we can access the values from multiple columns:
+
+
+
+```python
+df.iloc[[2, 4, 7], :]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+To pick only the even rows from the two columns, check this colon notation:
+
+
+
+```python
+df.iloc[:18:2, :]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+The number after the second colon indicates the stepsize.
+
+:::::::::::::::::::::::::::::::::: challenge
+
+## DIY2: Select data from dataframe
+
+Display the calcium and sodium concentrations of all patients except the first. Check the model solution at the bottom for options.
+
+::::::::::::::::: solution
+
+
+```python
+df[['calcium', 'sodium']][1:]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+::::::::::::::::: 
+
+:::::::::::::::::::::::::::::::::: 
+
+Mixing the ways to access specific data in a dataframe can be confusing and needs practice.
+
+### Search for missing values
+
+Some tables contain missing entries. You can check a dataframe for such missing entries. If no missing entry is found, the function `isnull` will return `False`.
+
+
+```python
+df.isnull().any()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+This shows that there are no missing entries in our dataframe.
+
+:::::::::::::::::::::::::::::::::: challenge
+## DIY3: Find NaN in dataframe
+
+ In the Loan data set, check the entry 'Self-employed' for ID LP001059. It shows how a missing value is represented as 'NaN' (not a number).
+
+ Verify that the output of `isnull` in this case is `True`
+ 
+::::::::::::::::: solution
+
+
+```python
+df_loan['Self_Employed'][8]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+
+```python
+df_loan['Self_Employed'][8:9].isnull()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+::::::::::::::::: 
+
+:::::::::::::::::::::::::::::::::: 
+
+## Basic data features
+
+### Summary Statistics
+
+To get a summary of basic data features use the function `describe`:
+
+
+
+```python
+description = df.describe()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+description
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+The `describe` function produces a new dataframe (here called 'descrition') that contains the number of samples, the mean, the standard deviation, minimum, 25th, 50th, 75th  percentile, and the maximum value for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the `loc` property. E.g. to access the mean of the calcium concentrations from the description, each of the following is valid:
+
+
+
+
+```python
+# Option 1
+description.loc['mean']['calcium']
+
+# Option 2
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+description.loc['mean'][0]
+
+# Option 3
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+description['calcium']['mean']
+
+# Option 4
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+description['calcium'][1]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+:::::::::::::::::::::::::::::::::: challenge
+## DIY4: Practice
+
+Use your own .csv data set to practice. (If you don't have a data set at hand, any excel table can be exported as .csv.) Read it into a dataframe, check its header, access indivdual values or sets of values. Create a statistics using `describe` and check for missing values using `.isnull`.
+
+::::::::::::::::: solution
+ [ad libitum]
+::::::::::::::::: 
+
+:::::::::::::::::::::::::::::::::: 
+
+### Iterating through the columns
+
+Now we know how to access all data in a dataframe and how to get a summary statistics over each column. 
+
+Here is code to iterate through the columns and access the first two concentrations: 
+
+
+
+```python
+for col in df:
+    
+    print(df[col][0:2])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+As a slightly more complex example, we access the median ('50%') of each column in the description and add it to a list:
+
+
+
+```python
+conc_medians = list()
+
+for col in df:
+    
+    conc_medians.append(df[col].describe()['50%'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('The columns are: ', list(df.columns))
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('The medians are: ', conc_medians)
+```
+
+```{.output}
+The medians are:  []
+```
+
+This approach is useful for data frames with a large number of columns. For instance, it is possible to then create a boxplot or histogram for the means, medians etc. of the dataframe and thus to get an overview of all (comparable) columns. 
+
+### Selecting a subset based on a template
+
+An analysis of a data set may need to be done on part of the data. This can often be formulated by using a logical condition which specifies the required subset.
+
+For this we will assume that some of the data are labelled '0' and some are labelled '1'. Let us therefore see how to add a new column to our Evereleys data frame which contains the (in this case arbitrary) labels.
+
+First we randomly create as many labels as we have rows in the data frame. We can use the `randint` function which we import from 'numpy.random'. `randint` in its simple form takes two arguments. First the upper bound of the integer needed, where by default it starts from zero. As Python is exclusive on the upper bound, providing '2' will thus yield either '0' or '1' only. 
+
+
+
+
+```python
+from numpy.random import randint
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'numpy'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+no_rows = len(df)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+randomLabel = randint(2, size=no_rows)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randint' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Number of rows:  ', no_rows)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Number of Labels:', len(randomLabel))
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Labels:          ', randomLabel)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
+
+Now we create a new data column in our `df` dataframe which contains the labels. To create a new column, you can simply refer to a column name that does not yet exist and assign values to it. Let us call it 'gender', assuming that '0' represents male and '1' represents female. 
+
+As gender specification can include more than two labels, try to create a column with more than two randomly assigned labels e.g. (0, 1, 2).
+
+
+
+
+```python
+df['gender'] = randomLabel
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df.head()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+Now we can use the information contained in 'gender' to filter the data by gender. To achieve this, we use a conditional statement. Let us check which of the rows are labelled as '1':
+
+
+
+
+```python
+df['gender'] == 1
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+If we assign the result of the conditional statement (Boolean True or False) to a variable, then this variable can act as a template to filter the data. If we call the data frame with that variable, we will only get the rows where the condition was found to be True:
+
+
+```python
+df_female = df['gender'] == 1
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df[df_female]
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
+
+:::::::::::::::::::::::::::::::::: challenge
+
+## DIY5: Using a template
+ 
+Modify the code to calculate the number of samples labelled 0 and check the number of rows of that subset.
+
+::::::::::::::::: solution
+
+
+```python
+from numpy.random import randint
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'numpy'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+no_rows = len(df)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+randomLabel = randint(2, size=no_rows)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randint' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df['gender'] = randomLabel
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df_male = df['gender'] == 0
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+no_males = len(df[df_male])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print(no_males, 'samples are labelled "male".')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_males' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+::::::::::::::::: 
+::::::::::::::::::::::::::::::::::
+## Visualisation of data
+
+It is easy to see from the numbers that the concentrations of sodium are much higher than that of calcium. However, to also compare the medians, percentiles and the spread of the data it is better to use visualisation. 
+
+The simplest way of visualisation is to use Pandas functionality which offers direct ways of plotting. Here is an example where a boxplot is created for each column:
+
+
+
+```python
+import matplotlib.pyplot as plt
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'matplotlib'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+df = read_csv("/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv") 
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+plt.boxplot(df)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+plt.show()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+By default, boxplots are shown for all columns if no further argument is given to the function (empty round parenthesis). As the calcium plot is rather squeezed we may wish to see it individually. This can be done by specifying the calcium column as an argument:
+    
+
+
+
+```python
+
+# Boxplot of calcium results
+# df.boxplot(column='calcium');
+
+
+plt.boxplot(df['calcium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+plt.show()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+### Plots using Matplotlib
+
+> [__Matplotlib__](https://matplotlib.org) is a comprehensive library for creating static, animated, and interactive visualizations in Python.
+
+The above is an easy way to create boxplots directly on the dataframe. It is based on the library Matplotlib and specifically uses the __pyplot library__. For simplicity, the code is put in a convenient Pandas function. 
+
+However, we are going to use __Matplotlib__ extensively later on in the course, and we therefore now introduce the direct, generic way of using it.
+
+For this, we import the function `subplots` from the [pyplot library](https://matplotlib.org/stable/api/pyplot_summary.html):
+
+
+
+
+```python
+from matplotlib.pyplot import subplots
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'matplotlib'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+The way to use `subplots` is to first set up a figure environment (below it is called 'fig') and an empty coordinate system (below called 'ax'). The plot is then done using one of the many methods available in Matplotlib. We apply it to the coordinate system 'ax'. 
+
+As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot|) of the calcium variable. As an argument of the function we need to specify the data. We can use the values of the 'calcium' concentrations from the column with that name:
+
+
+
+
+```python
+fig, ax = subplots()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.boxplot(df['calcium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.set_title('Boxplot of Everley\'s Calcium');
+
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_93_0.png)
+
+Note how following the actual plot we define the title of the plot by referring to the same coordinate system `ax`.
+
+The value of `subplots` becomes apparent when we try to create more than one plot in a single figure. 
+
+Here is an example to create two boxplots next to each other. The keyword arguments to use is 'ncols' which is the number of figures per row. 'ncols=2' indicates that you want to have two plots next to each other. 
+
+
+
+
+```python
+fig, ax = subplots(ncols=2)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].boxplot(df['calcium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].set_title('Calcium')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].boxplot(df['sodium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].set_title('Sodium');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+    
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_95_0.png)
+    
+
+
+Note that you now have to refer to each of the subplots by indexing the coordinate system 'ax'. 
+|
+This figure gives a good overview of the Everley's data.
+
+
+If you prefer to have the boxplots of both columns in a single figure, that can also be done:
+
+
+
+```python
+fig, ax = subplots(ncols=1, nrows=1)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.boxplot([df['calcium'], df['sodium']], positions=[1, 2])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+   
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_98_1.png)
+    
+
+:::::::::::::::::::::::::::::: challenge
+### DIY6: Boxplot from Loan data
+
+Plot the boxplots of the 'ApplicantIncome' and the 'CoapplicantIncome' in the Loan data using the above code.
+
+::::::::::::::::: solution
+
+
+```python
+fig, ax = subplots(ncols=1, nrows=1)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.boxplot([df_loan['ApplicantIncome'], df_loan['CoapplicantIncome']], positions=[1, 2])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+    
+![Applicant Income (left) & Co-Applicant Income (right)](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_139_0.png)
+::::::::::::::::: 
+:::::::::::::::::::::::::::::: 
+
+
+
+### Histogram
+
+Another good overview is the histogram: Containers or 'bins' are created over the range of values found within a column and the count of the values for each bin is plotted on the vertical axis.
+
+
+
+
+```python
+fig, ax = subplots(ncols=2, nrows=1)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].hist(df['calcium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].set(xlabel='Calcium', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].hist(df['sodium'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].set(xlabel='Sodium', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+fig.suptitle('Histograms of Everley concentrations', fontsize=15);
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_102_0.png)
+    
+
+
+This also shows how to add labels to the axes and a title to the overall figure.
+
+This uses the default value for the generation of the bins. It is set to 10 bins over the range of which values are found. The number of bins in the histogram can be changed using the keyword argument 'bins':
+
+
+
+```python
+fig, ax = subplots(ncols=2, nrows=1)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].hist(df['calcium'], bins=5)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].set(xlabel='Calcium, 5 bins', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].hist(df['calcium'], bins=15)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].set(xlabel='Calcium, 15 bins', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+fig.suptitle('Histograms with Different Binnings', fontsize=16);
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+    
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_104_0.png)
+    
+
+
+Note how the y-label of the right figure is not placed well. To correct for the placement of the labels and the title, you can use 
+`tight_layout` on the figure:
+
+
+
+
+```python
+fig, ax = subplots(ncols=2, nrows=1)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].hist(df['calcium'], bins=5)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[0].set(xlabel='Calcium, 5 bins', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].hist(df['calcium'], bins=15)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax[1].set(xlabel='Calcium, 15 bins', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+fig.suptitle('Histograms with Different Binnings', fontsize=16);
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+fig.tight_layout()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+    
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_106_0.png)
+    
+
+::::::::::::::::::::::::::::::: challenge 
+## DIY7: Create the histogram of a column
+
+Take the loan data and display the histogram of the loan amount that people asked for. (Loan amounts are divided by 1000, i.e. in k£ on the horizontal axis).  Use e.g. 20 bins. 
+
+::::::::::::::::: solution
+
+
+
+```python
+# Histogram of loan amounts in k£
+
+fig, ax = subplots()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.hist(df_loan['LoanAmount'], bins=20)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.set(xlabel='Loan amount', ylabel='Count');
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+ax.set_title('Histograms of Loan Amounts', fontsize=16);
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+    
+![Histograms of Loan Amounts](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_142_0.png)
+::::::::::::::::: 
+::::::::::::::::::::::::::::::: 
+
+# Handling the Diabetes Data Set
+
+We now return to the data set that started our enquiry into the handling of data in a dataframe. 
+
+We will now:
+
+- Import the diabetes data from 'sklearn'
+- Check the shape of the dataframe and search for NANs
+- Get a summary plot of one of its statistical quantities (e.g. mean) for all columns
+
+First we import the data set and check its `head`. Wait until the numbers show below the code, it might take a while.
+
+
+
+```python
+from sklearn import datasets
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+diabetes = datasets.load_diabetes()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'datasets' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+X = diabetes.data
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+from pandas import DataFrame
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```python
+df_diabetes = DataFrame(data=X)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'DataFrame' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+df_diabetes.head()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+If you don't see all columns, use the cursor to scroll to the right.
+
+Now let's check the number of columns and rows.
+
+
+
+```python
+no_rows = len(df_diabetes)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+no_cols = len(df_diabetes.columns)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('Rows:', no_rows, 'Columns:', no_cols)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+There are 442 rows organised in 10 columns.
+
+
+To get an overview, let us extract the mean of each column using 'describe' and plot all means as a bar chart. The Matplotlib function to plot a bar chart is `bar`:
+
+
+
+
+```python
+conc_means = list()
+
+for col in df_diabetes:
+    conc_means.append(df_diabetes[col].describe()['mean'])
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('The columns are: ', list(df_diabetes.columns))
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+print('The medians are: ', conc_means, 2)
+```
+
+```{.output}
+The medians are:  [] 2
+```
+
+```python
+fig, ax = subplots()
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+bins = range(10)
+
+ax.bar(bins, conc_means);
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+    
+![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_116_1.png)
+    
+
+
+The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-15) to +10^(-15). This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them. 
+
+In this example, we see how important it is to check the data before working with them. 
+
+
+
+## Assignment: The cervical cancer data set
+
+Download the cervical cancer data set provided, import it using `read_csv`.
+
+- How many rows and columns are there?
+- How many columns contain floating point numbers (float64)?
+- How many of the subjects are smokers?
+- Calculate the percentage of smokers
+- Plot the age distribution (with e.g. 50 bins)
+- Get the mean and standard distribution of age of first sexual intercourse
+
+
+
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
