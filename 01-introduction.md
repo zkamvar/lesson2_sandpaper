@@ -102,6 +102,22 @@ To use the functions contained in Pandas they need to be imported. Our dataset i
 
 
 
+
+
+```python
+import sys
+print(sys.verion)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): AttributeError: module 'sys' has no attribute 'verion'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+
+
 ```python
 from pandas import read_csv
 ```
