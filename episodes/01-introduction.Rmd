@@ -104,6 +104,14 @@ knitr::opts_chunk$set(echo = TRUE)
 library(reticulate)
 #use_python("/usr/local/bin/python3.10")
 
+# version = "3.10.2"
+# install_python(version = version)
+# virtualenv_create("r-env", python_version = version)
+# use_virtualenv("r-env")
+# Requirement already satisfied: setuptools in /Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages (58.1.0)
+# virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
+
+use_virtualenv("r-env")
 
 ```
 
@@ -111,7 +119,8 @@ library(reticulate)
 
 ```{python}
 import sys
-print(sys.verion)
+print(sys.version)
+
 ```
 
 
