@@ -39,7 +39,6 @@ jobs:
           library("reticulate")
           install_python(version = "3.10.2") 
           virtualenv_create("r-env", python_version = "3.10.2")
-          virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
         shell: Rscript {0}
           
       - name: "Set up Pandoc"
