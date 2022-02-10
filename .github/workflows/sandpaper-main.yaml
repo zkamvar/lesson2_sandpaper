@@ -45,6 +45,7 @@ jobs:
         run: |
           install.packages("reticulate")
           library("reticulate")
+          install_python(version = "3.10.2")
           use_python("/home/runner/.pyenv/versions/3.10.2/bin/python3.10")
           virtualenv_create("r-env", python_version = "3.10")         
         shell: Rscript {0}
