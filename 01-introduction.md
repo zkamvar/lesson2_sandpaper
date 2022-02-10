@@ -110,7 +110,8 @@ print(sys.version)
 ```
 
 ```{.output}
-3.10.2 (main, Jan 16 2022, 11:55:27) [GCC 9.3.0]
+3.8.10 (default, Nov 26 2021, 20:14:08) 
+[GCC 9.3.0]
 ```
 
 
@@ -792,18 +793,7 @@ First we randomly create as many labels as we have rows in the data frame. We ca
 
 ```python
 from numpy.random import randint
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'numpy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 no_rows = len(df)
 ```
 
@@ -819,7 +809,7 @@ randomLabel = randint(2, size=no_rows)
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randint' is not defined
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
 
 Detailed traceback:
   File "<string>", line 1, in <module>
@@ -944,18 +934,7 @@ Modify the code to calculate the number of samples labelled 0 and check the numb
 
 ```python
 from numpy.random import randint
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'numpy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 no_rows = len(df)
 ```
 
@@ -971,7 +950,7 @@ randomLabel = randint(2, size=no_rows)
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randint' is not defined
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
 
 Detailed traceback:
   File "<string>", line 1, in <module>
