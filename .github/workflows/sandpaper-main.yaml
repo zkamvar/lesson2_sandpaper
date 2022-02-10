@@ -39,6 +39,7 @@ jobs:
           library("reticulate")
           install_python(version = "3.10.2") 
           virtualenv_create("r-env", python_version = "3.10.2")
+          use_virtualenv("r-env")
         shell: Rscript {0}
           
       - name: "Set up Pandoc"
