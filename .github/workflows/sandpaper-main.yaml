@@ -27,14 +27,6 @@ jobs:
     steps:        
       - name: "Checkout Lesson"
         uses: actions/checkout@v2
-        
-      - name: "Set up Python"
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.10' # Version range or exact version of a Python version to use, using SemVer's version range syntax
-          architecture: 'x64' # optional x64 or x86. Defaults to x64 if not specified
-          cache: 'pip'
-      - run: pip install -r requirements.txt
 
       - name: "Set up R"
         uses: r-lib/actions/setup-r@v1
@@ -47,28 +39,6 @@ jobs:
           library("reticulate")
           install_python(version = "3.10.2") 
           virtualenv_create("r-env", python_version = "3.10.2")
-          
-          reticulate:::pip_install
-            function(pip, packages, ignore_installed = TRUE) {
-
-            # construct command line arguments
-            args <- c("install", "--upgrade")
-            if (ignore_installed)
-            args <- c(args, "--ignore-installed")
-            args <- c(args, packages)
-
-            # run it
-            result <- system2(pip, args)
-            if (result != 0L) {
-            pkglist <- paste(shQuote(packages), collapse = ", ")
-            msg <- paste("Error installing package(s):", pkglist)
-            stop(msg, call. = FALSE)
-            }
-
-            invisible(packages)
-
-            }
-         
           virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")
           use_virtualenv("r-env")
         shell: Rscript {0}
