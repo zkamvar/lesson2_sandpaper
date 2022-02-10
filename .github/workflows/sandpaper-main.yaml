@@ -41,7 +41,7 @@ jobs:
         with:
           use-public-rspm: true
       - run: |
-         R -r 'library(reticulate)'
+         R -e 'library(reticulate)'
          R -e 'install_python(version = "3.10.2")'  
          R -e 'virtualenv_create("r-env", python_version = "3.10.2")'
          R -e 'virtualenv_install(envname = "r-env", "pandas", "matplotlib", "sklearn")'
