@@ -137,6 +137,7 @@ Executing this code does not lead to any output on the screen. However, the func
 # (please go to the next cell if using Windows)
 import os
 os.getcwd()
+print("Hello World")
 df = read_csv("data/everleys_data.csv") 
 ```
 
