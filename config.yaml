@@ -7,10 +7,10 @@
 # dc: Data Carpentry
 # lc: Library Carpentry
 # cp: Carpentries (to use for instructor traning for instance)
-carpentry: cp
+carpentry: l2d
 
 # Overall title for pages.
-title: Lesson Title
+title: Data Frames in Python
 
 # Date the lesson was created (this is empty by default)
 created: ~
