@@ -138,6 +138,7 @@ Executing this code does not lead to any output on the screen. However, the func
 import os
 os.getcwd()
 print("Hello World! Alesha said")
+print("That's my hat! -- Teddy replied")
 df = read_csv("data/everleys_data.csv") 
 ```
 
