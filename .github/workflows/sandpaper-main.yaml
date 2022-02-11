@@ -50,13 +50,12 @@ jobs:
       - name: "Setup Lesson Engine"
         uses: sabaferdous12/actions/setup-sandpaper@main
         with:
-          cache-version: ${{ secrets.CACHE_VERSION }}
+          cache-version: ${{ secrets.CACHE_VERSION }}-test
 
       - name: "Setup Package Cache"
         uses: sabaferdous12/actions/setup-lesson-deps@main
         with:
-          cache-version: ${{ secrets.CACHE_VERSION }}
-
+          cache-version: ${{ secrets.CACHE_VERSION }}-test
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"
