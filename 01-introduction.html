@@ -174,7 +174,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>DataFrames 1</h1>
-        <p> Last updated on 2022-02-10 | <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-02-11 | <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -225,7 +225,7 @@
 
 </section><section id="challenge-the-diabetes-data-set"><h2 class="section-heading">Challenge: The diabetes data set</h2>
 <hr class="half-width"><p>Here is a screenshot of the so-called diabetes data set. It is taken from <a href="https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt" class="external-link">this webpage</a> and it is one of the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html" class="external-link">example data sets</a> used to illustrate machine learning functionality in scikit-learn (Part III and Part IV of the course).</p>
-<figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/diabetes_data_screenshot.png" title="Screenshot of Diabetes Data" class="figure mx-auto d-block"></figure><p>This figure captures only the top part of the data. On the webpage you need to scroll down considerably to view the whole content. Thus, to get an <strong>overview</strong> of the dataset is the first main task in Data Science.</p>
+<figure><img src="fig/diabetes_data_screenshot.png" title="Screenshot of Diabetes Data" class="figure mx-auto d-block"></figure><p>This figure captures only the top part of the data. On the webpage you need to scroll down considerably to view the whole content. Thus, to get an <strong>overview</strong> of the dataset is the first main task in Data Science.</p>
 <div id="callout1" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -278,40 +278,31 @@
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>3.8.10 (default, Nov 26 2021, 20:14:08) 
-[GCC 9.3.0]</code></pre>
+<pre class="output" tabindex="0"><code>3.10.2 (main, Feb  7 2022, 07:35:17) [GCC 9.3.0]</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_csv</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
-</div>
 <p>Executing this code does not lead to any output on the screen. However, the function is now ready to be used. To use it, we type its name and provide the required arguments. The following code should import the Everley’s data into your JupyterLab notebook (or other Python environment):</p>
-<div class="codewrapper sourceCode" id="cb5">
+<div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for Mac OSX and Linux</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (please go to the next cell if using Windows)</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv"</span>) </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># for Mac OSX and Linux</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># (please go to the next cell if using Windows)</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>os.getcwd()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="st">'/home/runner/work/lesson2_sandpaper/lesson2_sandpaper/site/built'</span></code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"data/everleys_data.csv"</span>) </span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -333,12 +324,27 @@ Detailed traceback:
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>     calcium      sodium
+0   3.455582  112.690980
+1   3.669026  125.663330
+2   2.789910  105.821810
+3   2.939900   98.172772
+4   5.426060   97.931489
+5   0.715811  120.858330
+6   5.652390  112.871500
+7   3.571320  112.647360
+8   4.300067  132.031720
+9   1.369419  118.499010
+10  2.550962  117.373730
+11  2.894129  134.052390
+12  3.664987  105.346410
+13  1.362779  123.359490
+14  3.718798  125.021060
+15  1.865868  112.075420
+16  3.272809  117.588040
+17  3.917591  101.009870</code></pre>
 </div>
 <p>(Compare with the result of <code>print(df)</code> which displays the contents in a different format.)</p>
 <p>The output shows in the first column an index, integers from 0 to 17; and the calcium and sodium concentrations in columns 2 and 3, respectively. The default indexing starts from zero (Python is a ‘zero-based’ programming language).</p>
@@ -350,12 +356,14 @@ Detailed traceback:
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>    calcium      sodium
+0  3.455582  112.690980
+1  3.669026  125.663330
+2  2.789910  105.821810
+3  2.939900   98.172772
+4  5.426060   97.931489</code></pre>
 </div>
 <p>Without any input argument, this displays the first five data lines of the dataframe. You can specify alter the number of rows displayed by including a single integer as argument, e.g. <code>head(10)</code>.</p>
 <p>If you feel there are too many decimal places in the default view, you can restrict their number by using the <code>round</code> function:</p>
@@ -365,135 +373,80 @@ Detailed traceback:
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>df.head().<span class="bu">round</span>(<span class="dv">2</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>   calcium  sodium
+0     3.46  112.69
+1     3.67  125.66
+2     2.79  105.82
+3     2.94   98.17
+4     5.43   97.93</code></pre>
 </div>
 <p>While we can see how many rows there are in a dataframe when we display the whole data frame and look at the last index, there is a convenient way to obtain the number directly:</p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, no_rows, <span class="st">'rows'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Data frame has 18 rows</code></pre>
 </div>
+<p>You could see above, that the columns of the dataframe have labels. To see all labels:</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, no_rows, <span class="st">'rows'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>column_labels <span class="op">=</span> df.columns</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(column_labels)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Index(['calcium', 'sodium'], dtype='object')</code></pre>
 </div>
-<p>You could see above, that the columns of the dataframe have labels. To see all labels:</p>
+<p>Now we can count the labels to obtain the number of columns:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>column_labels <span class="op">=</span> df.columns</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>no_columns <span class="op">=</span> <span class="bu">len</span>(column_labels)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, no_columns, <span class="st">'columns'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Data frame has 2 columns</code></pre>
 </div>
+<p>And if you want to have both the number of the rows and the columns together, use <code>shape</code>. Shape returns a tuple of two numbers, first the number of rows, then the number of columns.</p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(column_labels)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df_shape <span class="op">=</span> df.shape</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, df_shape[<span class="dv">0</span>], <span class="st">'rows and'</span>,df_shape[<span class="dv">1</span>],  <span class="st">'columns'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'column_labels' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<p>Now we can count the labels to obtain the number of columns:</p>
-<div class="codewrapper sourceCode" id="cb22">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>no_columns <span class="op">=</span> <span class="bu">len</span>(column_labels)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'column_labels' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb24">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, no_columns, <span class="st">'columns'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_columns' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<p>And if you want to have both the number of the rows and the columns together, use <code>shape</code>. Shape returns a tuple of two numbers, first the number of rows, then the number of columns.</p>
-<div class="codewrapper sourceCode" id="cb26">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df_shape <span class="op">=</span> df.shape</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb28">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Data frame has'</span>, df_shape[<span class="dv">0</span>], <span class="st">'rows and'</span>,df_shape[<span class="dv">1</span>],  <span class="st">'columns'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_shape' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Data frame has 18 rows and 2 columns</code></pre>
 </div>
 <p>Notice that <code>shape</code> (like <code>columns</code>) is not followed by round parenthesis. It is not a function that can take arguments. Technically, <code>shape</code> is a ‘property’ of the dataframe.</p>
 <p>To find out what data type is contained in each of the columns, us <code>dtypes</code>, another ‘property’:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>df.dtypes</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>calcium    float64
+sodium     float64
+dtype: object</code></pre>
 </div>
 <p>In this case, both columns contain floating point (decimal) numbers.</p>
 <div id="challenge1" class="callout challenge">
@@ -518,50 +471,33 @@ Detailed traceback:
 </button>
 <div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_csv</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe from .csv file</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> read_csv</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># dataframe from .csv file</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>df_loan <span class="op">=</span> read_csv(<span class="st">"data/loan_data.csv"</span>) </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="co"># display contents</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>df_loan.head(<span class="dv">10</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
+<pre class="output" tabindex="0"><code>    Loan_ID  Gender Married  ... Loan_Amount_Term Credit_History Property_Area
+0  LP001015    Male     Yes  ...            360.0            1.0         Urban
+1  LP001022    Male     Yes  ...            360.0            1.0         Urban
+2  LP001031    Male     Yes  ...            360.0            1.0         Urban
+3  LP001035    Male     Yes  ...            360.0            NaN         Urban
+4  LP001051    Male      No  ...            360.0            1.0         Urban
+5  LP001054    Male     Yes  ...            360.0            1.0         Urban
+6  LP001055  Female      No  ...            360.0            1.0     Semiurban
+7  LP001056    Male     Yes  ...            360.0            0.0         Rural
+8  LP001059    Male     Yes  ...            240.0            1.0         Urban
+9  LP001067    Male      No  ...            360.0            1.0     Semiurban
 
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb34">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df_loan <span class="op">=</span> read_csv(<span class="st">"data/loan_data.csv"</span>) </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="co"># display contents</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb36">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df_loan.head(<span class="dv">10</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+[10 rows x 12 columns]</code></pre>
 </div>
 </div>
 </div>
@@ -569,118 +505,154 @@ Detailed traceback:
 </div>
 </section><section id="accessing-data-in-a-dataframe"><h2 class="section-heading">Accessing data in a DataFrame</h2>
 <hr class="half-width"><p>If a datafile is large and you only want to check the format of data in a specific column, you can limit the display to that column. To access data contained in a specific column of a dataframe, we can use a similar convention as in a Python dictionary, treating the column names as ‘keys’. E.g. to show all rows in column ‘Calcium’, use:</p>
-<div class="codewrapper sourceCode" id="cb38">
+<div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>0     3.455582
+1     3.669026
+2     2.789910
+3     2.939900
+4     5.426060
+5     0.715811
+6     5.652390
+7     3.571320
+8     4.300067
+9     1.369419
+10    2.550962
+11    2.894129
+12    3.664987
+13    1.362779
+14    3.718798
+15    1.865868
+16    3.272809
+17    3.917591
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>To access individual rows of a column we use two pairs of square brackets:</p>
-<div class="codewrapper sourceCode" id="cb40">
+<div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>][<span class="dv">0</span>:<span class="dv">3</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>0    3.455582
+1    3.669026
+2    2.789910
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>Here all rules for <a href="https://docs.python.org/3/tutorial/introduction.html" class="external-link">slicing</a> can be applied. As for lists and tuples, the indexing of rows is semi-inclusive, lower boundary included, upper boundary excluded. Note that the first pair of square brackets refers to a column and the second pair refers to the rows. This is different from e.g. accessing items in a nested list.</p>
 <p>Accessing items in a Pandas dataframe is analogous to accessing the values in a Python dictionary by referring to its keys.</p>
 <p>To access non-contiguous elements, we use an additional pair of square brackets (as if for a list within a list):</p>
-<div class="codewrapper sourceCode" id="cb42">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>][[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'calcium'</span>][[<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">7</span>]]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>1    3.669026
+3    2.939900
+7    3.571320
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>Another possibility to index and slice a dataframe is the use of the ‘index location’ or <code>iloc</code> property. It refers first to rows and then to columns by index, all within a single pair of brackets. For example, to get all rows <code>:</code> of the first column (index <code>0</code>), you use:</p>
-<div class="codewrapper sourceCode" id="cb44">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:, <span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:, <span class="dv">0</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>0     3.455582
+1     3.669026
+2     2.789910
+3     2.939900
+4     5.426060
+5     0.715811
+6     5.652390
+7     3.571320
+8     4.300067
+9     1.369419
+10    2.550962
+11    2.894129
+12    3.664987
+13    1.362779
+14    3.718798
+15    1.865868
+16    3.272809
+17    3.917591
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>To display only the first three calcium concentrations, you use slicing, remembering that the upper bound is excluded):</p>
-<div class="codewrapper sourceCode" id="cb46">
+<div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>:<span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>df.iloc[<span class="dv">0</span>:<span class="dv">3</span>, <span class="dv">0</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>0    3.455582
+1    3.669026
+2    2.789910
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>To access non-consecutive values, we can use a pair of square brackets within the pair of square brackets:</p>
-<div class="codewrapper sourceCode" id="cb48">
+<div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>], <span class="dv">0</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>], <span class="dv">0</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>2    2.78991
+4    5.42606
+7    3.57132
+Name: calcium, dtype: float64</code></pre>
 </div>
 <p>Similarly, we can access the values from multiple columns:</p>
-<div class="codewrapper sourceCode" id="cb50">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>], :]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df.iloc[[<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">7</span>], :]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>   calcium      sodium
+2  2.78991  105.821810
+4  5.42606   97.931489
+7  3.57132  112.647360</code></pre>
 </div>
 <p>To pick only the even rows from the two columns, check this colon notation:</p>
-<div class="codewrapper sourceCode" id="cb52">
+<div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:<span class="dv">18</span>:<span class="dv">2</span>, :]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>df.iloc[:<span class="dv">18</span>:<span class="dv">2</span>, :]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>     calcium      sodium
+0   3.455582  112.690980
+2   2.789910  105.821810
+4   5.426060   97.931489
+6   5.652390  112.871500
+8   4.300067  132.031720
+10  2.550962  117.373730
+12  3.664987  105.346410
+14  3.718798  125.021060
+16  3.272809  117.588040</code></pre>
 </div>
 <p>The number after the second colon indicates the stepsize.</p>
 <div id="challenge2" class="callout challenge">
@@ -703,18 +675,32 @@ Detailed traceback:
 </button>
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb54">
+<div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'calcium'</span>, <span class="st">'sodium'</span>]][<span class="dv">1</span>:]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>df[[<span class="st">'calcium'</span>, <span class="st">'sodium'</span>]][<span class="dv">1</span>:]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>     calcium      sodium
+1   3.669026  125.663330
+2   2.789910  105.821810
+3   2.939900   98.172772
+4   5.426060   97.931489
+5   0.715811  120.858330
+6   5.652390  112.871500
+7   3.571320  112.647360
+8   4.300067  132.031720
+9   1.369419  118.499010
+10  2.550962  117.373730
+11  2.894129  134.052390
+12  3.664987  105.346410
+13  1.362779  123.359490
+14  3.718798  125.021060
+15  1.865868  112.075420
+16  3.272809  117.588040
+17  3.917591  101.009870</code></pre>
 </div>
 </div>
 </div>
@@ -724,18 +710,17 @@ Detailed traceback:
 <div class="section level3">
 <h3 id="search-for-missing-values">Search for missing values<a class="anchor" aria-label="anchor" href="#search-for-missing-values"></a></h3>
 <p>Some tables contain missing entries. You can check a dataframe for such missing entries. If no missing entry is found, the function <code>isnull</code> will return <code>False</code>.</p>
-<div class="codewrapper sourceCode" id="cb56">
+<div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">any</span>()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>df.isnull().<span class="bu">any</span>()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>calcium    False
+sodium     False
+dtype: bool</code></pre>
 </div>
 <p>This shows that there are no missing entries in our dataframe.</p>
 <div id="challenge3" class="callout challenge">
@@ -759,31 +744,26 @@ Detailed traceback:
 </button>
 <div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>df_loan[<span class="st">'Self_Employed'</span>][<span class="dv">8</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>df_loan[<span class="st">'Self_Employed'</span>][<span class="dv">8</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="va">nan</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>df_loan[<span class="st">'Self_Employed'</span>][<span class="dv">8</span>:<span class="dv">9</span>].isnull()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>df_loan[<span class="st">'Self_Employed'</span>][<span class="dv">8</span>:<span class="dv">9</span>].isnull()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_loan' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>8    True
+Name: Self_Employed, dtype: bool</code></pre>
 </div>
 </div>
 </div>
@@ -794,91 +774,73 @@ Detailed traceback:
 <hr class="half-width"><div class="section level3">
 <h3 id="summary-statistics">Summary Statistics<a class="anchor" aria-label="anchor" href="#summary-statistics"></a></h3>
 <p>To get a summary of basic data features use the function <code>describe</code>:</p>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb50">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>description <span class="op">=</span> df.describe()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>description <span class="op">=</span> df.describe()</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>description</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb64">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>description</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>         calcium      sodium
+count  18.000000   18.000000
+mean    3.174301  115.167484
+std     1.306652   10.756852
+min     0.715811   97.931489
+25%     2.610699  107.385212
+50%     3.364195  115.122615
+75%     3.706355  122.734200
+max     5.652390  134.052390</code></pre>
 </div>
 <p>The <code>describe</code> function produces a new dataframe (here called ‘descrition’) that contains the number of samples, the mean, the standard deviation, minimum, 25th, 50th, 75th percentile, and the maximum value for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the <code>loc</code> property. E.g. to access the mean of the calcium concentrations from the description, each of the following is valid:</p>
-<div class="codewrapper sourceCode" id="cb66">
+<div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>description.loc[<span class="st">'mean'</span>][<span class="st">'calcium'</span>]</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 1</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>description.loc[<span class="st">'mean'</span>][<span class="st">'calcium'</span>]</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 2</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="fl">3.1743005405555555</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb68">
+<div class="codewrapper sourceCode" id="cb54">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>description.loc[<span class="st">'mean'</span>][<span class="dv">0</span>]</span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 3</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>description.loc[<span class="st">'mean'</span>][<span class="dv">0</span>]</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 3</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="fl">3.1743005405555555</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb70">
+<div class="codewrapper sourceCode" id="cb56">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>description[<span class="st">'calcium'</span>][<span class="st">'mean'</span>]</span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 4</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>description[<span class="st">'calcium'</span>][<span class="st">'mean'</span>]</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Option 4</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="fl">3.1743005405555555</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb72">
+<div class="codewrapper sourceCode" id="cb58">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>description[<span class="st">'calcium'</span>][<span class="dv">1</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>description[<span class="st">'calcium'</span>][<span class="dv">1</span>]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'description' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code><span class="fl">3.1743005405555555</span></code></pre>
 </div>
 <div id="challenge4" class="callout challenge">
 <div class="callout-square">
@@ -910,61 +872,49 @@ Detailed traceback:
 <h3 id="iterating-through-the-columns">Iterating through the columns<a class="anchor" aria-label="anchor" href="#iterating-through-the-columns"></a></h3>
 <p>Now we know how to access all data in a dataframe and how to get a summary statistics over each column.</p>
 <p>Here is code to iterate through the columns and access the first two concentrations:</p>
-<div class="codewrapper sourceCode" id="cb74">
+<div class="codewrapper sourceCode" id="cb60">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df:</span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df[col][<span class="dv">0</span>:<span class="dv">2</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<p>As a slightly more complex example, we access the median (‘50%’) of each column in the description and add it to a list:</p>
-<div class="codewrapper sourceCode" id="cb76">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>conc_medians <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df:</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>    conc_medians.append(df[col].describe()[<span class="st">'50%'</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb78">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The columns are: '</span>, <span class="bu">list</span>(df.columns))</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb80">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The medians are: '</span>, conc_medians)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df:</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(df[col][<span class="dv">0</span>:<span class="dv">2</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>The medians are:  []</code></pre>
+<pre class="output" tabindex="0"><code>0    3.455582
+1    3.669026
+Name: calcium, dtype: float64
+0    112.69098
+1    125.66333
+Name: sodium, dtype: float64</code></pre>
+</div>
+<p>As a slightly more complex example, we access the median (‘50%’) of each column in the description and add it to a list:</p>
+<div class="codewrapper sourceCode" id="cb62">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>conc_medians <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df:</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    conc_medians.append(df[col].describe()[<span class="st">'50%'</span>])</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The columns are: '</span>, <span class="bu">list</span>(df.columns))</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The columns are:  ['calcium', 'sodium']</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb64">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The medians are: '</span>, conc_medians)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The medians are:  [3.3641954, 115.122615]</code></pre>
 </div>
 <p>This approach is useful for data frames with a large number of columns. For instance, it is possible to then create a boxplot or histogram for the means, medians etc. of the dataframe and thus to get an overview of all (comparable) columns.</p>
 </div>
@@ -973,142 +923,112 @@ Detailed traceback:
 <p>An analysis of a data set may need to be done on part of the data. This can often be formulated by using a logical condition which specifies the required subset.</p>
 <p>For this we will assume that some of the data are labelled ‘0’ and some are labelled ‘1’. Let us therefore see how to add a new column to our Evereleys data frame which contains the (in this case arbitrary) labels.</p>
 <p>First we randomly create as many labels as we have rows in the data frame. We can use the <code>randint</code> function which we import from ‘numpy.random’. <code>randint</code> in its simple form takes two arguments. First the upper bound of the integer needed, where by default it starts from zero. As Python is exclusive on the upper bound, providing ‘2’ will thus yield either ‘0’ or ‘1’ only.</p>
-<div class="codewrapper sourceCode" id="cb82">
+<div class="codewrapper sourceCode" id="cb66">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
-<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>randomLabel <span class="op">=</span> randint(<span class="dv">2</span>, size<span class="op">=</span>no_rows)</span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of rows:  '</span>, no_rows)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Number of rows:   18</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb84">
+<div class="codewrapper sourceCode" id="cb68">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>randomLabel <span class="op">=</span> randint(<span class="dv">2</span>, size<span class="op">=</span>no_rows)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Labels:'</span>, <span class="bu">len</span>(randomLabel))</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Number of Labels: 18</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb86">
+<div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of rows:  '</span>, no_rows)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Labels:          '</span>, randomLabel)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb88">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Number of Labels:'</span>, <span class="bu">len</span>(randomLabel))</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb90">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Labels:          '</span>, randomLabel)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Labels:           [0 1 0 1 0 0 1 1 1 1 1 1 1 0 0 0 0 0]</code></pre>
 </div>
 <p>Note how we obtain the number of rows (18) using <code>len</code> and do not put it directly into the code.</p>
 <p>Now we create a new data column in our <code>df</code> dataframe which contains the labels. To create a new column, you can simply refer to a column name that does not yet exist and assign values to it. Let us call it ‘gender’, assuming that ‘0’ represents male and ‘1’ represents female.</p>
 <p>As gender specification can include more than two labels, try to create a column with more than two randomly assigned labels e.g. (0, 1, 2).</p>
-<div class="codewrapper sourceCode" id="cb92">
+<div class="codewrapper sourceCode" id="cb72">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">=</span> randomLabel</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">=</span> randomLabel</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb94">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>    calcium      sodium  gender
+0  3.455582  112.690980       0
+1  3.669026  125.663330       1
+2  2.789910  105.821810       0
+3  2.939900   98.172772       1
+4  5.426060   97.931489       0</code></pre>
 </div>
 <p>Now we can use the information contained in ‘gender’ to filter the data by gender. To achieve this, we use a conditional statement. Let us check which of the rows are labelled as ‘1’:</p>
-<div class="codewrapper sourceCode" id="cb96">
+<div class="codewrapper sourceCode" id="cb74">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span></span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>0     False
+1      True
+2     False
+3      True
+4     False
+5     False
+6      True
+7      True
+8      True
+9      True
+10     True
+11     True
+12     True
+13    False
+14    False
+15    False
+16    False
+17    False
+Name: gender, dtype: bool</code></pre>
 </div>
 <p>If we assign the result of the conditional statement (Boolean True or False) to a variable, then this variable can act as a template to filter the data. If we call the data frame with that variable, we will only get the rows where the condition was found to be True:</p>
-<div class="codewrapper sourceCode" id="cb98">
+<div class="codewrapper sourceCode" id="cb76">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>df_female <span class="op">=</span> df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>df_female <span class="op">=</span> df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">1</span></span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>df[df_female]</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb100">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>df[df_female]</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>     calcium      sodium  gender
+1   3.669026  125.663330       1
+3   2.939900   98.172772       1
+6   5.652390  112.871500       1
+7   3.571320  112.647360       1
+8   4.300067  132.031720       1
+9   1.369419  118.499010       1
+10  2.550962  117.373730       1
+11  2.894129  134.052390       1
+12  3.664987  105.346410       1</code></pre>
 </div>
 <p>Using the Boolean, we only pick the rows that are labelled ‘1’ and thus get a subset of the data according to the label.</p>
 <div id="challenge5" class="callout challenge">
@@ -1131,85 +1051,27 @@ Detailed traceback:
 </button>
 <div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb102">
+<div class="codewrapper sourceCode" id="cb78">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
-<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb102-3"><a href="#cb102-3" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy.random <span class="im">import</span> randint</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df)</span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>randomLabel <span class="op">=</span> randint(<span class="dv">2</span>, size<span class="op">=</span>no_rows)</span>
+<span id="cb78-6"><a href="#cb78-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-7"><a href="#cb78-7" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">=</span> randomLabel</span>
+<span id="cb78-8"><a href="#cb78-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-9"><a href="#cb78-9" aria-hidden="true" tabindex="-1"></a>df_male <span class="op">=</span> df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">0</span></span>
+<span id="cb78-10"><a href="#cb78-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-11"><a href="#cb78-11" aria-hidden="true" tabindex="-1"></a>no_males <span class="op">=</span> <span class="bu">len</span>(df[df_male])</span>
+<span id="cb78-12"><a href="#cb78-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb78-13"><a href="#cb78-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(no_males, <span class="st">'samples are labelled "male".'</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb104">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a>randomLabel <span class="op">=</span> randint(<span class="dv">2</span>, size<span class="op">=</span>no_rows)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb106">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'gender'</span>] <span class="op">=</span> randomLabel</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'randomLabel' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb108">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>df_male <span class="op">=</span> df[<span class="st">'gender'</span>] <span class="op">==</span> <span class="dv">0</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb110">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>no_males <span class="op">=</span> <span class="bu">len</span>(df[df_male])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb112">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(no_males, <span class="st">'samples are labelled "male".'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_males' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>8 samples are labelled "male".</code></pre>
 </div>
 </div>
 </div>
@@ -1219,93 +1081,69 @@ Detailed traceback:
 </section><section id="visualisation-of-data"><h2 class="section-heading">Visualisation of data</h2>
 <hr class="half-width"><p>It is easy to see from the numbers that the concentrations of sodium are much higher than that of calcium. However, to also compare the medians, percentiles and the spread of the data it is better to use visualisation.</p>
 <p>The simplest way of visualisation is to use Pandas functionality which offers direct ways of plotting. Here is an example where a boxplot is created for each column:</p>
-<div class="codewrapper sourceCode" id="cb114">
+<div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv"</span>) </span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'matplotlib'
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): FileNotFoundError: [Errno 2] No such file or directory: '/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv'
 
 Detailed traceback:
   File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1217, in _make_engine
+    self.handles = get_handle(  # type: ignore[call-overload]
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/common.py", line 789, in get_handle
+    handle = open(</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb116">
+<div class="codewrapper sourceCode" id="cb82">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> read_csv(<span class="st">"/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv"</span>) </span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'read_csv' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df93d9c00&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93d9ed0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93dafe0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93db2b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df94283d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df94286a0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df93da260&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93da470&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93db580&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93db850&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9428970&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9428c40&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df93d9930&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93dad10&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9428100&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df93da740&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93dbb20&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9428f10&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df93daa10&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df93dbdf0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df94291e0&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb118">
+<div class="codewrapper sourceCode" id="cb84">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb120">
+<figure><img src="fig/01-introduction-rendered-unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>By default, boxplots are shown for all columns if no further argument is given to the function (empty round parenthesis). As the calcium plot is rather squeezed we may wish to see it individually. This can be done by specifying the calcium column as an argument:</p>
+<div class="codewrapper sourceCode" id="cb85">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of calcium results</span></span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df.boxplot(column='calcium');</span></span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df92e6cb0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df92e6e30&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df92e7130&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df92e7400&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df92e69e0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df92e76d0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df92e79a0&gt;], 'means': []}</code></pre>
 </div>
-<p>By default, boxplots are shown for all columns if no further argument is given to the function (empty round parenthesis). As the calcium plot is rather squeezed we may wish to see it individually. This can be done by specifying the calcium column as an argument:</p>
-<div class="codewrapper sourceCode" id="cb122">
+<div class="codewrapper sourceCode" id="cb87">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Boxplot of calcium results</span></span>
-<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a><span class="co"># df.boxplot(column='calcium');</span></span>
-<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb124">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'plt' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="section level3">
+<figure><img src="fig/01-introduction-rendered-unnamed-chunk-35-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="section level3">
 <h3 id="plots-using-matplotlib">Plots using Matplotlib<a class="anchor" aria-label="anchor" href="#plots-using-matplotlib"></a></h3>
 <blockquote>
 <p><a href="https://matplotlib.org" class="external-link"><strong>Matplotlib</strong></a> is a comprehensive library for creating static, animated, and interactive visualizations in Python.</p>
@@ -1313,172 +1151,82 @@ Detailed traceback:
 <p>The above is an easy way to create boxplots directly on the dataframe. It is based on the library Matplotlib and specifically uses the <strong>pyplot library</strong>. For simplicity, the code is put in a convenient Pandas function.</p>
 <p>However, we are going to use <strong>Matplotlib</strong> extensively later on in the course, and we therefore now introduce the direct, generic way of using it.</p>
 <p>For this, we import the function <code>subplots</code> from the <a href="https://matplotlib.org/stable/api/pyplot_summary.html" class="external-link">pyplot library</a>:</p>
-<div class="codewrapper sourceCode" id="cb126">
+<div class="codewrapper sourceCode" id="cb88">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'matplotlib'
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots</span></code></pre>
 </div>
 <p>The way to use <code>subplots</code> is to first set up a figure environment (below it is called ‘fig’) and an empty coordinate system (below called ‘ax’). The plot is then done using one of the many methods available in Matplotlib. We apply it to the coordinate system ‘ax’.</p>
 <p>As an example, let us create a <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot%7C" class="external-link">boxplot</a> of the calcium variable. As an argument of the function we need to specify the data. We can use the values of the ‘calcium’ concentrations from the column with that name:</p>
-<div class="codewrapper sourceCode" id="cb128">
+<div class="codewrapper sourceCode" id="cb89">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb89-3"><a href="#cb89-3" aria-hidden="true" tabindex="-1"></a>ax.boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df933fa00&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df933fcd0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df933ffa0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91702b0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df933f490&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df9170580&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df9170850&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb130">
+<div class="codewrapper sourceCode" id="cb91">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>ax.boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb132">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Boxplot of Everley</span><span class="ch">\'</span><span class="st">s Calcium'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Boxplot of Everley</span><span class="ch">\'</span><span class="st">s Calcium'</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_93_0.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>Note how following the actual plot we define the title of the plot by referring to the same coordinate system <code>ax</code>.</p>
 <p>The value of <code>subplots</code> becomes apparent when we try to create more than one plot in a single figure.</p>
 <p>Here is an example to create two boxplots next to each other. The keyword arguments to use is ‘ncols’ which is the number of figures per row. ‘ncols=2’ indicates that you want to have two plots next to each other.</p>
-<div class="codewrapper sourceCode" id="cb134">
+<div class="codewrapper sourceCode" id="cb92">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>)</span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df9198ca0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9198f70&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df9199240&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9199480&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df9198730&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df9199750&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df9199a20&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb136">
+<div class="codewrapper sourceCode" id="cb94">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].boxplot(df[<span class="st">'calcium'</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Calcium'</span>)</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].boxplot(df[<span class="st">'sodium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df919a260&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df919a530&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df919a800&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df919aad0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df9199f90&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df919ada0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df919b070&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb138">
+<div class="codewrapper sourceCode" id="cb96">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Calcium'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb140">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].boxplot(df[<span class="st">'sodium'</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb142">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Sodium'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Sodium'</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_95_0.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>Note that you now have to refer to each of the subplots by indexing the coordinate system ‘ax’. | This figure gives a good overview of the Everley’s data.</p>
 <p>If you prefer to have the boxplots of both columns in a single figure, that can also be done:</p>
-<div class="codewrapper sourceCode" id="cb144">
+<div class="codewrapper sourceCode" id="cb97">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb97-3"><a href="#cb97-3" aria-hidden="true" tabindex="-1"></a>ax.boxplot([df[<span class="st">'calcium'</span>], df[<span class="st">'sodium'</span>]], positions<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df91f17b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f1f30&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f3010&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f32e0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df91f2200&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f24d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f35b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f3880&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df91f1b40&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f2d40&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df91f27a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f3b50&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df91f2a70&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df91f3e20&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb146">
+<div class="codewrapper sourceCode" id="cb99">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a>ax.boxplot([df[<span class="st">'calcium'</span>], df[<span class="st">'sodium'</span>]], positions<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Boxplot of Calcium (left) and Sodium (right)'</span>)</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb148">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Boxplot of Calcium (left) and Sodium (right)'</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_98_1.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><div id="challenge6" class="callout challenge">
+<figure><img src="fig/01-introduction-rendered-unnamed-chunk-39-5.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_98_1.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><div id="challenge6" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
@@ -1498,44 +1246,22 @@ Detailed traceback:
 </button>
 <div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb150">
+<div class="codewrapper sourceCode" id="cb100">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb100-3"><a href="#cb100-3" aria-hidden="true" tabindex="-1"></a>ax.boxplot([df_loan[<span class="st">'ApplicantIncome'</span>], df_loan[<span class="st">'CoapplicantIncome'</span>]], positions<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f4df90710c0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9071390&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9072470&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9072740&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f4df9071660&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9071930&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9072a10&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9072ce0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f4df9070b50&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df90721a0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f4df9071c00&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9072fb0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f4df9071ed0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f4df9073280&gt;], 'means': []}</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb152">
+<div class="codewrapper sourceCode" id="cb102">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>ax.boxplot([df_loan[<span class="st">'ApplicantIncome'</span>], df_loan[<span class="st">'CoapplicantIncome'</span>]], positions<span class="op">=</span>[<span class="dv">1</span>, <span class="dv">2</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb154">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Applicant Income (left) &amp; Co-Applicant Income (right)'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Applicant Income (left) &amp; Co-Applicant Income (right)'</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_139_0.png" alt="" class="figure mx-auto d-block"><figcaption>Applicant Income (left) &amp; Co-Applicant Income (right)</figcaption></figure></div>
 </div>
@@ -1545,255 +1271,112 @@ Detailed traceback:
 <div class="section level3">
 <h3 id="histogram">Histogram<a class="anchor" aria-label="anchor" href="#histogram"></a></h3>
 <p>Another good overview is the histogram: Containers or ‘bins’ are created over the range of values found within a column and the count of the values for each bin is plotted on the vertical axis.</p>
-<div class="codewrapper sourceCode" id="cb156">
+<div class="codewrapper sourceCode" id="cb103">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([1., 2., 1., 1., 3., 5., 2., 1., 0., 2.]), array([0.71581063, 1.20946859, 1.70312654, 2.1967845 , 2.69044246,
+       3.18410042, 3.67775837, 4.17141633, 4.66507429, 5.15873224,
+       5.6523902 ]), &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb158">
+<div class="codewrapper sourceCode" id="cb105">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'sodium'</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([3., 0., 2., 1., 3., 3., 1., 3., 0., 2.]), array([ 97.931489 , 101.5435791, 105.1556692, 108.7677593, 112.3798494,
+       115.9919395, 119.6040296, 123.2161197, 126.8282098, 130.4402999,
+       134.05239  ]), &lt;BarContainer object of 10 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb160">
+<div class="codewrapper sourceCode" id="cb107">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb162">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'sodium'</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb164">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Sodium'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb166">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms of Everley concentrations'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Sodium'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms of Everley concentrations'</span>, fontsize<span class="op">=</span><span class="dv">15</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_102_0.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>This also shows how to add labels to the axes and a title to the overall figure.</p>
 <p>This uses the default value for the generation of the bins. It is set to 10 bins over the range of which values are found. The number of bins in the histogram can be changed using the keyword argument ‘bins’:</p>
-<div class="codewrapper sourceCode" id="cb168">
+<div class="codewrapper sourceCode" id="cb108">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb108-2"><a href="#cb108-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-3"><a href="#cb108-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">5</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([3., 2., 8., 3., 2.]), array([0.71581063, 1.70312654, 2.69044246, 3.67775837, 4.66507429,
+       5.6523902 ]), &lt;BarContainer object of 5 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb170">
+<div class="codewrapper sourceCode" id="cb110">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">5</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 5 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb110-2"><a href="#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="#cb110-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([1., 2., 0., 1., 0., 1., 3., 1., 4., 2., 1., 0., 0., 0., 2.]), array([0.71581063, 1.04491593, 1.37402124, 1.70312654, 2.03223185,
+       2.36133715, 2.69044246, 3.01954776, 3.34865307, 3.67775837,
+       4.00686368, 4.33596898, 4.66507429, 4.99417959, 5.3232849 ,
+       5.6523902 ]), &lt;BarContainer object of 15 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb172">
+<div class="codewrapper sourceCode" id="cb112">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 5 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb174">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb176">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 15 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb178">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms with Different Binnings'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 15 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms with Different Binnings'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_104_0.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>Note how the y-label of the right figure is not placed well. To correct for the placement of the labels and the title, you can use <code>tight_layout</code> on the figure:</p>
-<div class="codewrapper sourceCode" id="cb180">
+<div class="codewrapper sourceCode" id="cb113">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">2</span>, nrows<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">5</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([3., 2., 8., 3., 2.]), array([0.71581063, 1.70312654, 2.69044246, 3.67775837, 4.66507429,
+       5.6523902 ]), &lt;BarContainer object of 5 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb182">
+<div class="codewrapper sourceCode" id="cb115">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">5</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 5 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([1., 2., 0., 1., 0., 1., 3., 1., 4., 2., 1., 0., 0., 0., 2.]), array([0.71581063, 1.04491593, 1.37402124, 1.70312654, 2.03223185,
+       2.36133715, 2.69044246, 3.01954776, 3.34865307, 3.67775837,
+       4.00686368, 4.33596898, 4.66507429, 4.99417959, 5.3232849 ,
+       5.6523902 ]), &lt;BarContainer object of 15 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb184">
+<div class="codewrapper sourceCode" id="cb117">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 5 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb186">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(df[<span class="st">'calcium'</span>], bins<span class="op">=</span><span class="dv">15</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb188">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 15 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb190">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms with Different Binnings'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb192">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fig' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Calcium, 15 bins'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Histograms with Different Binnings'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>fig.tight_layout()</span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_106_0.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><div id="challenge7" class="callout challenge">
 <div class="callout-square">
@@ -1815,59 +1398,29 @@ Detailed traceback:
 </button>
 <div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb194">
+<div class="codewrapper sourceCode" id="cb118">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of loan amounts in k£</span></span>
-<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram of loan amounts in k£</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>ax.hist(df_loan[<span class="st">'LoanAmount'</span>], bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>(array([12., 34., 63., 97., 67., 33., 28.,  9.,  6.,  2.,  5.,  1.,  1.,
+        1.,  1.,  0.,  1.,  0.,  0.,  1.]), array([ 28. ,  54.1,  80.2, 106.3, 132.4, 158.5, 184.6, 210.7, 236.8,
+       262.9, 289. , 315.1, 341.2, 367.3, 393.4, 419.5, 445.6, 471.7,
+       497.8, 523.9, 550. ]), &lt;BarContainer object of 20 artists&gt;)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb196">
+<div class="codewrapper sourceCode" id="cb120">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>ax.hist(df_loan[<span class="st">'LoanAmount'</span>], bins<span class="op">=</span><span class="dv">20</span>)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb198">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Loan amount'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb200">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Histograms of Loan Amounts'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a>ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Loan amount'</span>, ylabel<span class="op">=</span><span class="st">'Count'</span>)<span class="op">;</span></span>
+<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Histograms of Loan Amounts'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_142_0.png" alt="" class="figure mx-auto d-block"><figcaption>Histograms of Loan Amounts</figcaption></figure></div>
 </div>
@@ -1882,197 +1435,83 @@ Detailed traceback:
 <li>Check the shape of the dataframe and search for NANs</li>
 <li>Get a summary plot of one of its statistical quantities (e.g. mean) for all columns</li>
 </ul><p>First we import the data set and check its <code>head</code>. Wait until the numbers show below the code, it might take a while.</p>
-<div class="codewrapper sourceCode" id="cb202">
+<div class="codewrapper sourceCode" id="cb121">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb204">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a>diabetes <span class="op">=</span> datasets.load_diabetes()</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'datasets' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb206">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> diabetes.data</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb208">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'pandas'
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;
-  File "/home/runner/.local/share/renv/cache/v5/R-4.1/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb210">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a>df_diabetes <span class="op">=</span> DataFrame(data<span class="op">=</span>X)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'DataFrame' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb212">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a>df_diabetes.head()</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<p>If you don’t see all columns, use the cursor to scroll to the right.</p>
-<p>Now let’s check the number of columns and rows.</p>
-<div class="codewrapper sourceCode" id="cb214">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb214-1"><a href="#cb214-1" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df_diabetes)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb216">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb216-1"><a href="#cb216-1" aria-hidden="true" tabindex="-1"></a>no_cols <span class="op">=</span> <span class="bu">len</span>(df_diabetes.columns)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb218">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Rows:'</span>, no_rows, <span class="st">'Columns:'</span>, no_cols)</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_rows' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<p>There are 442 rows organised in 10 columns.</p>
-<p>To get an overview, let us extract the mean of each column using ‘describe’ and plot all means as a bar chart. The Matplotlib function to plot a bar chart is <code>bar</code>:</p>
-<div class="codewrapper sourceCode" id="cb220">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>conc_means <span class="op">=</span> <span class="bu">list</span>()</span>
-<span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df_diabetes:</span>
-<span id="cb220-4"><a href="#cb220-4" aria-hidden="true" tabindex="-1"></a>    conc_means.append(df_diabetes[col].describe()[<span class="st">'mean'</span>])</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb222">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The columns are: '</span>, <span class="bu">list</span>(df_diabetes.columns))</span></code></pre>
-</div>
-<div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
-</div>
-<div class="codewrapper sourceCode" id="cb224">
-<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb224-1"><a href="#cb224-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The medians are: '</span>, conc_means, <span class="dv">2</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn <span class="im">import</span> datasets</span>
+<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>diabetes <span class="op">=</span> datasets.load_diabetes()</span>
+<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>X <span class="op">=</span> diabetes.data</span>
+<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pandas <span class="im">import</span> DataFrame</span>
+<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-9"><a href="#cb121-9" aria-hidden="true" tabindex="-1"></a>df_diabetes <span class="op">=</span> DataFrame(data<span class="op">=</span>X)</span>
+<span id="cb121-10"><a href="#cb121-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb121-11"><a href="#cb121-11" aria-hidden="true" tabindex="-1"></a>df_diabetes.head()</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>The medians are:  [] 2</code></pre>
+<pre class="output" tabindex="0"><code>          0         1         2  ...         7         8         9
+0  0.038076  0.050680  0.061696  ... -0.002592  0.019908 -0.017646
+1 -0.001882 -0.044642 -0.051474  ... -0.039493 -0.068330 -0.092204
+2  0.085299  0.050680  0.044451  ... -0.002592  0.002864 -0.025930
+3 -0.089063 -0.044642 -0.011595  ...  0.034309  0.022692 -0.009362
+4  0.005383 -0.044642 -0.036385  ... -0.002592 -0.031991 -0.046641
+
+[5 rows x 10 columns]</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb226">
+<p>If you don’t see all columns, use the cursor to scroll to the right.</p>
+<p>Now let’s check the number of columns and rows.</p>
+<div class="codewrapper sourceCode" id="cb123">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>no_rows <span class="op">=</span> <span class="bu">len</span>(df_diabetes)</span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>no_cols <span class="op">=</span> <span class="bu">len</span>(df_diabetes.columns)</span>
+<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Rows:'</span>, no_rows, <span class="st">'Columns:'</span>, no_cols)</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'subplots' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>Rows: 442 Columns: 10</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb228">
+<p>There are 442 rows organised in 10 columns.</p>
+<p>To get an overview, let us extract the mean of each column using ‘describe’ and plot all means as a bar chart. The Matplotlib function to plot a bar chart is <code>bar</code>:</p>
+<div class="codewrapper sourceCode" id="cb125">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb228-1"><a href="#cb228-1" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)</span>
-<span id="cb228-2"><a href="#cb228-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb228-3"><a href="#cb228-3" aria-hidden="true" tabindex="-1"></a>ax.bar(bins, conc_means)<span class="op">;</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>conc_means <span class="op">=</span> <span class="bu">list</span>()</span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> df_diabetes:</span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>    conc_means.append(df_diabetes[col].describe()[<span class="st">'mean'</span>])</span>
+<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The columns are: '</span>, <span class="bu">list</span>(df_diabetes.columns))</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'ax' is not defined
-
-Detailed traceback:
-  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+<pre class="output" tabindex="0"><code>The columns are:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb127">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'The medians are: '</span>, conc_means, <span class="dv">2</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>The medians are:  [-3.6396225400041895e-16, 1.309912460049817e-16, -8.013951493363262e-16, 1.2898179256674614e-16, -9.042540472060098e-17, 1.3011211012575365e-16, -4.563971121592555e-16, 3.8631742350078977e-16, -3.848103334221131e-16, -3.39848812741592e-16] 2</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb129">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>bins <span class="op">=</span> <span class="bu">range</span>(<span class="dv">10</span>)</span>
+<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a>ax.bar(bins, conc_means)<span class="op">;</span></span></code></pre>
 </div>
 <figure><img src="/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_116_1.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-15) to +10^(-15). This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them.</p>
 <p>In this example, we see how important it is to check the data before working with them.</p>
@@ -2150,9 +1589,9 @@ Detailed traceback:
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd//01-introduction.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd//01-introduction.html",
-  "dateCreated": "2022-02-10",
-  "dateModified": "2022-02-10",
-  "datePublished": "2022-02-10"
+  "dateCreated": "2022-02-11",
+  "dateModified": "2022-02-11",
+  "datePublished": "2022-02-11"
 }
 
   </script><script>
