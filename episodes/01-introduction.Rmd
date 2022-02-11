@@ -51,7 +51,7 @@ The diabetes data set is one of the challenging task.
 Here is a screenshot of the so-called diabetes data set. It is taken from 
 [this webpage](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt) and it is one of the [example data sets](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) used to illustrate machine learning functionality in scikit-learn (Part III and Part IV of the course). 
 
-![](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/diabetes_data_screenshot.png "Screenshot of Diabetes Data")
+![](fig/diabetes_data_screenshot.png "Screenshot of Diabetes Data")
 
 
 This figure captures only the top part of the data. On the webpage you need to scroll down considerably to view the whole content. Thus, to get an __overview__ of the dataset is the first main task in Data Science. 
@@ -135,8 +135,9 @@ Executing this code does not lead to any output on the screen. However, the func
 ```{python}
 # for Mac OSX and Linux
 # (please go to the next cell if using Windows)
-
-df = read_csv("/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv") 
+import os
+os.getcwd()
+df = read_csv("data/everleys_data.csv") 
 ```
 
 
