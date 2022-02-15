@@ -135,10 +135,7 @@ Executing this code does not lead to any output on the screen. However, the func
 ```{python}
 # for Mac OSX and Linux
 # (please go to the next cell if using Windows)
-import os
-os.getcwd()
-print("Hello World! Alesha said")
-print("That's my hat! -- Teddy replied")
+
 df = read_csv("data/everleys_data.csv") 
 ```
 
@@ -153,7 +150,7 @@ df = read_csv("data/everleys_data.csv")
 
 This code uses the `read_csv` function from Pandas to read data from a data file, in this case a file with extension '.csv'. Note that the location of the data file is specified within quotes by the relative path to the subfolder 'data' followed by the file name. Use the JupyterLab file browser to check that subfolder exists and has the file in it.
 
-![](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/subfolder_data.png "Screenshot of subfolder 'data' ")
+![](fig/subfolder_data.png "Screenshot of subfolder 'data' ")
 
 
 After execution of the code, the data are contained in a variable called `df`. This is a structure referred to as a Pandas _DataFrame_. 
@@ -620,7 +617,7 @@ ax.set_title('Boxplot of Everley\'s Calcium');
 
 ```
 
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_93_0.png)
+![png](fig/output_93_0.png)
 
 Note how following the actual plot we define the title of the plot by referring to the same coordinate system `ax`.
 
@@ -643,7 +640,7 @@ ax[1].set_title('Sodium');
 
 
     
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_95_0.png)
+![png](fig/output_95_0.png)
     
 
 
@@ -664,7 +661,7 @@ ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
 ```
 
    
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_98_1.png)
+![png](fig/output_98_1.png)
     
 
 :::::::::::::::::::::::::::::: challenge
@@ -684,7 +681,7 @@ ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
 
 
     
-![Applicant Income (left) & Co-Applicant Income (right)](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_139_0.png)
+![Applicant Income (left) & Co-Applicant Income (right)](fig/output_139_0.png)
 ::::::::::::::::: 
 :::::::::::::::::::::::::::::: 
 
@@ -710,7 +707,7 @@ fig.suptitle('Histograms of Everley concentrations', fontsize=15);
 ```
 
 
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_102_0.png)
+![png](fig/output_102_0.png)
     
 
 
@@ -733,7 +730,7 @@ fig.suptitle('Histograms with Different Binnings', fontsize=16);
 
 
     
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_104_0.png)
+![png](fig/output_104_0.png)
     
 
 
@@ -757,7 +754,7 @@ fig.tight_layout()
 
 
     
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_106_0.png)
+![png](fig/output_106_0.png)
     
 
 ::::::::::::::::::::::::::::::: challenge 
@@ -782,7 +779,7 @@ ax.set_title('Histograms of Loan Amounts', fontsize=16);
 
 
     
-![Histograms of Loan Amounts](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_142_0.png)
+![Histograms of Loan Amounts](fig/output_142_0.png)
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::: 
 
@@ -853,7 +850,7 @@ ax.bar(bins, conc_means);
 ```
 
     
-![png](/Users/sabaferdous/git/lesson1_sandpaper/episodes/fig/output_116_1.png)
+![png](fig/output_116_1.png)
     
 
 
