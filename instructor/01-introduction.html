@@ -148,6 +148,9 @@
 <li><a href="#accessing-data-in-a-dataframe">Accessing data in a DataFrame</a></li>
 <li><a href="#basic-data-features">Basic data features</a></li>
 <li><a href="#visualisation-of-data">Visualisation of data</a></li>
+<li><a href="#handling-the-diabetes-data-set">Handling the Diabetes Data Set</a></li>
+<li><a href="#assignment-the-cervical-cancer-data-set">Assignment: The cervical cancer data set</a></li>
+<li><a href="#download-the-pdf">Download the pdf</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -986,7 +989,7 @@ Name: sodium, dtype: float64</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Labels:           [1 0 0 0 1 1 0 1 1 0 1 0 1 0 0 0 1 0]</code></pre>
+<pre class="output" tabindex="0"><code>Labels:           [0 1 0 0 0 1 0 1 1 1 1 0 1 0 1 0 1 1]</code></pre>
 </div>
 <p>Note how we obtain the number of rows (18) using <code>len</code> and do not put it directly into the code.</p>
 <p>Now we create a new data column in our <code>df</code> dataframe which contains the labels. To create a new column, you can simply refer to a column name that does not yet exist and assign values to it. Let us call it ‘gender’, assuming that ‘0’ represents male and ‘1’ represents female.</p>
@@ -1002,11 +1005,11 @@ Name: sodium, dtype: float64</code></pre>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    calcium      sodium  gender
-0  3.455582  112.690980       1
-1  3.669026  125.663330       0
+0  3.455582  112.690980       0
+1  3.669026  125.663330       1
 2  2.789910  105.821810       0
 3  2.939900   98.172772       0
-4  5.426060   97.931489       1</code></pre>
+4  5.426060   97.931489       0</code></pre>
 </div>
 <p>Now we can use the information contained in ‘gender’ to filter the data by gender. To achieve this, we use a conditional statement. Let us check which of the rows are labelled as ‘1’:</p>
 <div class="codewrapper sourceCode" id="cb72">
@@ -1017,24 +1020,24 @@ Name: sodium, dtype: float64</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>0      True
-1     False
+<pre class="output" tabindex="0"><code>0     False
+1      True
 2     False
 3     False
-4      True
+4     False
 5      True
 6     False
 7      True
 8      True
-9     False
+9      True
 10     True
 11    False
 12     True
 13    False
-14    False
+14     True
 15    False
 16     True
-17    False
+17     True
 Name: gender, dtype: bool</code></pre>
 </div>
 <p>If we assign the result of the conditional statement (Boolean True or False) to a variable, then this variable can act as a template to filter the data. If we call the data frame with that variable, we will only get the rows where the condition was found to be True:</p>
@@ -1048,15 +1051,17 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>     calcium      sodium  gender
-0   3.455582  112.690980       1
-4   5.426060   97.931489       1
-5   0.715811  120.858330       1
-7   3.571320  112.647360       1
-8   4.300067  132.031720       1
-10  2.550962  117.373730       1
-12  3.664987  105.346410       1
-16  3.272809  117.588040       1</code></pre>
+<pre class="output" tabindex="0"><code>     calcium     sodium  gender
+1   3.669026  125.66333       1
+5   0.715811  120.85833       1
+7   3.571320  112.64736       1
+8   4.300067  132.03172       1
+9   1.369419  118.49901       1
+10  2.550962  117.37373       1
+12  3.664987  105.34641       1
+14  3.718798  125.02106       1
+16  3.272809  117.58804       1
+17  3.917591  101.00987       1</code></pre>
 </div>
 <p>Using the Boolean, we only pick the rows that are labelled ‘1’ and thus get a subset of the data according to the label.</p>
 <div id="challenge5" class="callout challenge">
@@ -1143,7 +1148,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f672a5b5ae0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b5db0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b6ec0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7190&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3ac2b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3ac580&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f672a5b6140&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b6350&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7460&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7730&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3ac850&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3acb20&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f672a5b5810&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b6bf0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7fa0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f672a5b6620&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7a00&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3acdf0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f672a5b68f0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a5b7cd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a3ad0c0&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f8689805ae0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689805db0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689806ec0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807190&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fc2b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fc580&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f8689806140&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689806350&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807460&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807730&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fc850&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fcb20&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f8689805810&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689806bf0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807fa0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f8689806620&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807a00&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fcdf0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f86898068f0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689807cd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895fd0c0&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb82">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1164,7 +1169,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f672a462fb0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a463130&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f672a463430&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672a463700&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f672a462ce0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f672a4639d0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f672a463ca0&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f86896b6f50&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86896b70d0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f86896b73d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86896b76a0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f86896b6c80&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f86896b7970&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f86896b7c40&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb85">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1196,7 +1201,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f67282c3f40&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67282e8250&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f67282e8520&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67282e87f0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f67282c39d0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f67282e8ac0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f67282e8d90&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f8689513f70&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689538280&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f8689538550&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689538820&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f8689513a00&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f8689538af0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f8689538dc0&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb89">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1216,7 +1221,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f672834bd90&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67283740a0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f6728374370&gt;, &lt;matplotlib.lines.Line2D object at 0x7f6728374640&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f672834aad0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f6728374910&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f6728374be0&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f8689565180&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689565450&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f8689565720&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689565960&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f8689564ca0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f8689565c30&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f8689565f00&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb92">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1228,7 +1233,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f6728375330&gt;, &lt;matplotlib.lines.Line2D object at 0x7f6728375600&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f67283758d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f6728375ba0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f6728375060&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f6728375e70&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f6728376140&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f8689566740&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689566a10&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f8689566ce0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689566fb0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f8689566470&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f8689567280&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f8689567550&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb94">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1247,7 +1252,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f67281c89a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281ab940&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281ca050&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281ca320&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f67281c9240&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281c9510&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281ca5f0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281ca8c0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f67281c8cd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281c9d80&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f67281c97e0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281cab90&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f67281c9ab0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f67281cab60&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f86895b9d80&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895ba500&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895bb5e0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895bb8b0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f86895ba7d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895baaa0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895bbb80&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895bbe50&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f86895ba110&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86895bb310&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f86895bad70&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86893f4160&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f86895bb040&gt;, &lt;matplotlib.lines.Line2D object at 0x7f86893f4430&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb97">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1284,7 +1289,7 @@ Detailed traceback:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f672824c370&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824c640&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824d720&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824d9f0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f672824c910&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824cbe0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824dcc0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824df90&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f672824c0a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824d450&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f672824ceb0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824e260&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f672824d180&gt;, &lt;matplotlib.lines.Line2D object at 0x7f672824e530&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f8689439870&gt;, &lt;matplotlib.lines.Line2D object at 0x7f8689439b40&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943ac20&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943aef0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f8689439e10&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943a0e0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943b1c0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943b490&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f86894392a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943a950&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f868943a3b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943b760&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f868943a680&gt;, &lt;matplotlib.lines.Line2D object at 0x7f868943ba30&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb100">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1455,9 +1460,8 @@ Detailed traceback:
 </div>
 </div>
 </div>
-</section><div class="section level1">
-<h1 id="handling-the-diabetes-data-set">Handling the Diabetes Data Set<a class="anchor" aria-label="anchor" href="#handling-the-diabetes-data-set"></a></h1>
-<p>We now return to the data set that started our enquiry into the handling of data in a dataframe.</p>
+</section><section id="handling-the-diabetes-data-set"><h2 class="section-heading">Handling the Diabetes Data Set</h2>
+<hr class="half-width"><p>We now return to the data set that started our enquiry into the handling of data in a dataframe.</p>
 <p>We will now:</p>
 <ul><li>Import the diabetes data from ‘sklearn’</li>
 <li>Check the shape of the dataframe and search for NANs</li>
@@ -1543,9 +1547,8 @@ Detailed traceback:
 </div>
 <figure><img src="../fig/output_116_1.png" alt="" class="figure mx-auto d-block"><figcaption>png</figcaption></figure><p>The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-15) to +10^(-15). This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them.</p>
 <p>In this example, we see how important it is to check the data before working with them.</p>
-<div class="section level2">
-<h2 id="assignment-the-cervical-cancer-data-set">Assignment: The cervical cancer data set<a class="anchor" aria-label="anchor" href="#assignment-the-cervical-cancer-data-set"></a></h2>
-<p>Download the cervical cancer data set provided, import it using <code>read_csv</code>.</p>
+</section><section id="assignment-the-cervical-cancer-data-set"><h2 class="section-heading">Assignment: The cervical cancer data set</h2>
+<hr class="half-width"><p>Download the cervical cancer data set provided, import it using <code>read_csv</code>.</p>
 <ul><li>How many rows and columns are there?</li>
 <li>How many columns contain floating point numbers (float64)?</li>
 <li>How many of the subjects are smokers?</li>
@@ -1559,19 +1562,16 @@ Detailed traceback:
 <div class="callout-inner">
 <h3 class="callout-title">Keypoints</h3>
 <div class="callout-content">
-<ul><li>Use <code>.md</code> files for episodes when you want static content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/check_lesson.html" class="external-link">sandpaper::check_lesson()</a></code> to identify any issues with your lesson</li>
-<li>Run <code><a href="https://rdrr.io/pkg/sandpaper/man/build_lesson.html" class="external-link">sandpaper::build_lesson()</a></code> to preview your lesson locally</li>
+<ul><li>learned importing data set as dataframe</li>
+<li>learned inspecting data frame and accessing data</li>
+<li>Producing an overview of data features</li>
+<li>Creating data plots using matplotlib</li>
 </ul></div>
 </div>
 </div>
-</div>
-</div>
-
-
-
-      </div> <!-- / div.lesson-content -->
+</section><section id="download-the-pdf"><h2 class="section-heading">Download the pdf</h2>
+<hr class="half-width"><p>This section’s pdf can be accessed at:<a href="../01-introduction.md%20.pdf">Download pdf</a></p>
+</section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link" href="../instructor/index.html"><i aria-hidden="true" class="small-arrow" data-feather="arrow-left"></i>Previous</a>
         <a class="chapter-link float-end" href="../instructor/index.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
