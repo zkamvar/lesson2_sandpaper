@@ -783,7 +783,7 @@ ax.set_title('Histograms of Loan Amounts', fontsize=16);
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::: 
 
-# Handling the Diabetes Data Set
+##  Handling the Diabetes Data Set
 
 We now return to the data set that started our enquiry into the handling of data in a dataframe. 
 
@@ -876,11 +876,15 @@ Download the cervical cancer data set provided, import it using `read_csv`.
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
+- learned importing data set as dataframe
+- learned inspecting data frame and accessing data
+- Producing an overview of data features
+- Creating data plots using matplotlib
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
+
+## Download the pdf
+
+This section's pdf can be accessed at:[Download pdf](01-introduction.md\ .pdf)
 
 [r-markdown]: https://rmarkdown.rstudio.com/
