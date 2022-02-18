@@ -565,7 +565,7 @@ The simplest way of visualisation is to use Pandas functionality which offers di
 
 ```{python}
 import matplotlib.pyplot as plt
-df = read_csv("/Users/sabaferdous/git/lesson1_sandpaper/episodes/data/everleys_data.csv") 
+df = read_csv("data/everleys_data.csv") 
 plt.boxplot(df)
 plt.show()
 
