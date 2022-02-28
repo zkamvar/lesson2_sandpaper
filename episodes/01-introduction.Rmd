@@ -887,4 +887,9 @@ Download the cervical cancer data set provided, import it using `read_csv`.
 
 This section's pdf can be accessed at:[Download pdf](01-introduction.md.pdf)
 
+## Download jupyter notebook
+
+Coming SOON
+
+
 [r-markdown]: https://rmarkdown.rstudio.com/
