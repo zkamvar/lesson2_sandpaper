@@ -890,7 +890,9 @@ This section's pdf can be accessed at:[Download pdf](01-introduction.md.pdf)
 ## Download jupyter notebook
 
 Coming SOON
+
 To be seen in Odeon :D
 
+Can not wait for this !!!
 
 [r-markdown]: https://rmarkdown.rstudio.com/
