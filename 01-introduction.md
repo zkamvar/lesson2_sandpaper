@@ -776,7 +776,7 @@ print('Labels:          ', randomLabel)
 ```
 
 ```{.output}
-Labels:           [1 0 0 1 0 0 0 0 0 0 1 0 1 1 1 0 0 1]
+Labels:           [0 0 1 1 1 1 1 0 0 0 1 0 1 0 0 1 0 1]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -796,11 +796,11 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       1
+0  3.455582  112.690980       0
 1  3.669026  125.663330       0
-2  2.789910  105.821810       0
+2  2.789910  105.821810       1
 3  2.939900   98.172772       1
-4  5.426060   97.931489       0
+4  5.426060   97.931489       1
 ```
 
 Now we can use the information contained in 'gender' to filter the data by gender. To achieve this, we use a conditional statement. Let us check which of the rows are labelled as '1':
@@ -813,22 +813,22 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0      True
+0     False
 1     False
-2     False
+2      True
 3      True
-4     False
-5     False
-6     False
+4      True
+5      True
+6      True
 7     False
 8     False
 9     False
 10     True
 11    False
 12     True
-13     True
-14     True
-15    False
+13    False
+14    False
+15     True
 16    False
 17     True
 Name: gender, dtype: bool
@@ -845,12 +845,14 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
-0   3.455582  112.690980       1
+2   2.789910  105.821810       1
 3   2.939900   98.172772       1
+4   5.426060   97.931489       1
+5   0.715811  120.858330       1
+6   5.652390  112.871500       1
 10  2.550962  117.373730       1
 12  3.664987  105.346410       1
-13  1.362779  123.359490       1
-14  3.718798  125.021060       1
+15  1.865868  112.075420       1
 17  3.917591  101.009870       1
 ```
 
@@ -883,7 +885,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-9 samples are labelled "male".
+12 samples are labelled "male".
 ```
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::::::
@@ -902,7 +904,7 @@ plt.boxplot(df)
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e09ecf610>, <matplotlib.lines.Line2D object at 0x7f1e09ecf8e0>, <matplotlib.lines.Line2D object at 0x7f1e09f10a30>, <matplotlib.lines.Line2D object at 0x7f1e09f10d00>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e09ecfc70>, <matplotlib.lines.Line2D object at 0x7f1e09ecfe80>, <matplotlib.lines.Line2D object at 0x7f1e09f10fd0>, <matplotlib.lines.Line2D object at 0x7f1e09f112a0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e09ecf340>, <matplotlib.lines.Line2D object at 0x7f1e09f10760>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09f10190>, <matplotlib.lines.Line2D object at 0x7f1e09f11570>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09f10460>, <matplotlib.lines.Line2D object at 0x7f1e09f11840>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdca06f5e0>, <matplotlib.lines.Line2D object at 0x7efdca06f8b0>, <matplotlib.lines.Line2D object at 0x7efdc9e58a00>, <matplotlib.lines.Line2D object at 0x7efdc9e58cd0>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdca06fc40>, <matplotlib.lines.Line2D object at 0x7efdca06fe50>, <matplotlib.lines.Line2D object at 0x7efdc9e58fa0>, <matplotlib.lines.Line2D object at 0x7efdc9e59270>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdca06f310>, <matplotlib.lines.Line2D object at 0x7efdc9e58730>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdc9e58160>, <matplotlib.lines.Line2D object at 0x7efdc9e59540>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdc9e58430>, <matplotlib.lines.Line2D object at 0x7efdc9e59810>], 'means': []}
 ```
 
 ```python
@@ -926,7 +928,7 @@ plt.boxplot(df['calcium'])
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e09fb71c0>, <matplotlib.lines.Line2D object at 0x7f1e09fb7370>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e09fb7640>, <matplotlib.lines.Line2D object at 0x7f1e09fb7910>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e09fb6ef0>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09fb7be0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09fb7eb0>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdc9f07190>, <matplotlib.lines.Line2D object at 0x7efdc9f07340>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdc9f07610>, <matplotlib.lines.Line2D object at 0x7efdc9f078e0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdc9f06ec0>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdc9f07bb0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdc9f07e80>], 'means': []}
 ```
 
 ```python
@@ -966,7 +968,7 @@ ax.boxplot(df['calcium'])
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e09e3c160>, <matplotlib.lines.Line2D object at 0x7f1e09e3c430>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e09e3c700>, <matplotlib.lines.Line2D object at 0x7f1e09e3c9d0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e09df7bb0>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09e3cca0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09e3cf70>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdc9d98130>, <matplotlib.lines.Line2D object at 0x7efdc9d98400>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdc9d986d0>, <matplotlib.lines.Line2D object at 0x7efdc9d989a0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdc9d63b80>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdc9d98c70>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdc9d98f40>], 'means': []}
 ```
 
 ```python
@@ -992,7 +994,7 @@ ax[0].boxplot(df['calcium'])
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e0a0e3a30>, <matplotlib.lines.Line2D object at 0x7f1e0a0e2800>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e0a0e1b40>, <matplotlib.lines.Line2D object at 0x7f1e0a0e3d30>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e0a0e3700>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e0a0e2a70>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e0a0e24a0>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdca02f8e0>, <matplotlib.lines.Line2D object at 0x7efdca02e7d0>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdca02db10>, <matplotlib.lines.Line2D object at 0x7efdca02fd00>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdca02dae0>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdca02ea40>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdca02e470>], 'means': []}
 ```
 
 ```python
@@ -1002,7 +1004,7 @@ ax[1].boxplot(df['sodium'])
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e0a0e1de0>, <matplotlib.lines.Line2D object at 0x7f1e0a0e3730>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e0a0e2e90>, <matplotlib.lines.Line2D object at 0x7f1e09ece320>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e0a0e1ba0>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09ecd0f0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09ece170>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdca02ddb0>, <matplotlib.lines.Line2D object at 0x7efdca02f880>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdca02ee60>, <matplotlib.lines.Line2D object at 0x7efdca06e320>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdca02db70>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdca06e650>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdca06e110>], 'means': []}
 ```
 
 ```python
@@ -1031,7 +1033,7 @@ ax.boxplot([df['calcium'], df['sodium']], positions=[1, 2])
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e09e64c70>, <matplotlib.lines.Line2D object at 0x7f1e09e3fc10>, <matplotlib.lines.Line2D object at 0x7f1e09e66320>, <matplotlib.lines.Line2D object at 0x7f1e09e665f0>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e09e65510>, <matplotlib.lines.Line2D object at 0x7f1e09e657e0>, <matplotlib.lines.Line2D object at 0x7f1e09e668c0>, <matplotlib.lines.Line2D object at 0x7f1e09e66b90>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e09e64fa0>, <matplotlib.lines.Line2D object at 0x7f1e09e66050>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09e65ab0>, <matplotlib.lines.Line2D object at 0x7f1e09e66e60>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09e65d80>, <matplotlib.lines.Line2D object at 0x7f1e09e67130>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdc9dbcc40>, <matplotlib.lines.Line2D object at 0x7efdc9d9bbe0>, <matplotlib.lines.Line2D object at 0x7efdc9dbe2f0>, <matplotlib.lines.Line2D object at 0x7efdc9dbe5c0>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdc9dbd4e0>, <matplotlib.lines.Line2D object at 0x7efdc9dbd7b0>, <matplotlib.lines.Line2D object at 0x7efdc9dbe890>, <matplotlib.lines.Line2D object at 0x7efdc9dbeb60>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdc9dbcf70>, <matplotlib.lines.Line2D object at 0x7efdc9dbe020>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdc9dbda80>, <matplotlib.lines.Line2D object at 0x7efdc9dbee30>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdc9dbdd50>, <matplotlib.lines.Line2D object at 0x7efdc9dbf100>], 'means': []}
 ```
 
 ```python
@@ -1059,7 +1061,7 @@ ax.boxplot([df_loan['ApplicantIncome'], df_loan['CoapplicantIncome']], positions
 ```
 
 ```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f1e09cdcd90>, <matplotlib.lines.Line2D object at 0x7f1e09cdd060>, <matplotlib.lines.Line2D object at 0x7f1e09cde140>, <matplotlib.lines.Line2D object at 0x7f1e09cde410>], 'caps': [<matplotlib.lines.Line2D object at 0x7f1e09cdd330>, <matplotlib.lines.Line2D object at 0x7f1e09cdd600>, <matplotlib.lines.Line2D object at 0x7f1e09cde6e0>, <matplotlib.lines.Line2D object at 0x7f1e09cde9b0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f1e09cdc820>, <matplotlib.lines.Line2D object at 0x7f1e09cdde70>], 'medians': [<matplotlib.lines.Line2D object at 0x7f1e09cdd8d0>, <matplotlib.lines.Line2D object at 0x7f1e09cdec80>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f1e09cddba0>, <matplotlib.lines.Line2D object at 0x7f1e09cdef50>], 'means': []}
+{'whiskers': [<matplotlib.lines.Line2D object at 0x7efdc9c38d00>, <matplotlib.lines.Line2D object at 0x7efdc9c38fd0>, <matplotlib.lines.Line2D object at 0x7efdc9c3a0b0>, <matplotlib.lines.Line2D object at 0x7efdc9c3a380>], 'caps': [<matplotlib.lines.Line2D object at 0x7efdc9c392a0>, <matplotlib.lines.Line2D object at 0x7efdc9c39570>, <matplotlib.lines.Line2D object at 0x7efdc9c3a650>, <matplotlib.lines.Line2D object at 0x7efdc9c3a920>], 'boxes': [<matplotlib.lines.Line2D object at 0x7efdc9c38790>, <matplotlib.lines.Line2D object at 0x7efdc9c39de0>], 'medians': [<matplotlib.lines.Line2D object at 0x7efdc9c39840>, <matplotlib.lines.Line2D object at 0x7efdc9c3abf0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7efdc9c39b10>, <matplotlib.lines.Line2D object at 0x7efdc9c3aec0>], 'means': []}
 ```
 
 ```python
