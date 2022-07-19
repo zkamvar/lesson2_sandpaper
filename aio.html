@@ -214,7 +214,7 @@
         
 <section id="aio-01-introduction"><p>Content from <a href="01-introduction.html">DataFrames 1</a></p>
 <hr>
-<p> Last updated on 2022-07-12 | <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p> Last updated on 2022-07-19 | <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/01-introduction.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -510,7 +510,7 @@ dtype: object</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -715,7 +715,7 @@ Name: calcium, dtype: float64</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -785,7 +785,7 @@ dtype: bool</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -905,7 +905,7 @@ max     5.652390  134.052390</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>[ad libitum]</p>
 </div>
@@ -1004,7 +1004,7 @@ Name: sodium, dtype: float64</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>Labels:           [0 0 1 1 0 0 1 0 0 0 0 1 0 0 1 0 0 1]</code></pre>
+<pre class="output" tabindex="0"><code>Labels:           [1 0 1 1 1 1 1 1 0 1 0 0 0 1 0 0 1 1]</code></pre>
 </div>
 <p>Note how we obtain the number of rows (18) using <code>len</code> and do not put it directly into the code.</p>
 <p>Now we create a new data column in our <code>df</code> dataframe which contains the labels. To create a new column, you can simply refer to a column name that does not yet exist and assign values to it. Let us call it ‘gender’, assuming that ‘0’ represents male and ‘1’ represents female.</p>
@@ -1020,11 +1020,11 @@ Name: sodium, dtype: float64</code></pre>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    calcium      sodium  gender
-0  3.455582  112.690980       0
+0  3.455582  112.690980       1
 1  3.669026  125.663330       0
 2  2.789910  105.821810       1
 3  2.939900   98.172772       1
-4  5.426060   97.931489       0</code></pre>
+4  5.426060   97.931489       1</code></pre>
 </div>
 <p>Now we can use the information contained in ‘gender’ to filter the data by gender. To achieve this, we use a conditional statement. Let us check which of the rows are labelled as ‘1’:</p>
 <div class="codewrapper sourceCode" id="cb72">
@@ -1035,23 +1035,23 @@ Name: sodium, dtype: float64</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>0     False
+<pre class="output" tabindex="0"><code>0      True
 1     False
 2      True
 3      True
-4     False
-5     False
+4      True
+5      True
 6      True
-7     False
+7      True
 8     False
-9     False
+9      True
 10    False
-11     True
+11    False
 12    False
-13    False
-14     True
+13     True
+14    False
 15    False
-16    False
+16     True
 17     True
 Name: gender, dtype: bool</code></pre>
 </div>
@@ -1067,11 +1067,16 @@ Name: gender, dtype: bool</code></pre>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>     calcium      sodium  gender
+0   3.455582  112.690980       1
 2   2.789910  105.821810       1
 3   2.939900   98.172772       1
+4   5.426060   97.931489       1
+5   0.715811  120.858330       1
 6   5.652390  112.871500       1
-11  2.894129  134.052390       1
-14  3.718798  125.021060       1
+7   3.571320  112.647360       1
+9   1.369419  118.499010       1
+13  1.362779  123.359490       1
+16  3.272809  117.588040       1
 17  3.917591  101.009870       1</code></pre>
 </div>
 <p>Using the Boolean, we only pick the rows that are labelled ‘1’ and thus get a subset of the data according to the label.</p>
@@ -1093,7 +1098,7 @@ Name: gender, dtype: bool</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb76">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1115,7 +1120,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>11 samples are labelled "male".</code></pre>
+<pre class="output" tabindex="0"><code>7 samples are labelled "male".</code></pre>
 </div>
 </div>
 </div>
@@ -1136,7 +1141,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b442b160&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b442b430&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4460580&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4460850&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b442b700&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b442b9d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4460b20&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4460df0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b442ae90&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b44602b0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b442bca0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b44610c0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b442bf70&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4461390&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2de422e60&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de423130&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de460280&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de460550&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2de423400&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de4236d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de460820&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de460af0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2de422b90&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de423f70&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2de4239a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de460dc0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2de423c70&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2de461090&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb80">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1157,7 +1162,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b4307610&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b43077c0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b4307a90&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4307d60&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b4307340&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b433c070&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b433c340&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc297490&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc297640&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc297910&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc297be0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc2971c0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc297eb0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc2d41c0&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb83">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1190,7 +1195,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b4388640&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4388910&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b4388be0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4388eb0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b4388100&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b4389180&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b4389450&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc324430&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc324700&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc3249d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc324ca0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc324040&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc324f70&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc325240&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb87">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1210,7 +1215,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c1810&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b43c1ae0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c1db0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b43c1ff0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c12a0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c22c0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c2590&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc359630&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc359900&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc359bd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc359e10&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc3590c0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35a0e0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35a3b0&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb90">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1222,7 +1227,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c2dd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b43c30a0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c3370&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b43c3640&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c2b00&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c3910&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b43c3be0&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35abf0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc35aec0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35b190&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc35b460&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35a920&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35b730&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc35ba00&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb92">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1241,7 +1246,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b4216320&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4216aa0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4217b80&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4217e50&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b4216d70&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4217040&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b424c160&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b424c430&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b42166b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b42178b0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b4217310&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b424c700&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b42175e0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b424c9d0&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc1ae1d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1ae950&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1afa30&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1afd00&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc1aec20&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1aeef0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1affd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1e02e0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc1ae560&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1af760&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc1af1c0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1e05b0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc1af490&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc1e0880&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb95">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1266,7 +1271,7 @@ Name: gender, dtype: bool</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb96">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1278,7 +1283,7 @@ Name: gender, dtype: bool</code></pre>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7f69b4299bd0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b4299ea0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429af80&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429b250&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7f69b429a170&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429a440&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429b520&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429b7f0&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7f69b4299870&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429acb0&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7f69b429a710&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429bac0&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7f69b429a9e0&gt;, &lt;matplotlib.lines.Line2D object at 0x7f69b429bd90&gt;], 'means': []}</code></pre>
+<pre class="output" tabindex="0"><code>{'whiskers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc22dc60&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22df30&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22f010&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22f2e0&gt;], 'caps': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc22e200&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22e4d0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22f5b0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22f880&gt;], 'boxes': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc22d690&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22ed40&gt;], 'medians': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc22e7a0&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22fb50&gt;], 'fliers': [&lt;matplotlib.lines.Line2D object at 0x7fa2dc22ea70&gt;, &lt;matplotlib.lines.Line2D object at 0x7fa2dc22fe20&gt;], 'means': []}</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb98">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1420,7 +1425,7 @@ Name: gender, dtype: bool</code></pre>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb114">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1620,8 +1625,8 @@ Name: gender, dtype: bool</code></pre>
   "url": "https://carpentries.github.io/workbench-template-rmd/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/aio.html",
   "dateCreated": "2022-03-15",
-  "dateModified": "2022-07-12",
-  "datePublished": "2022-07-12"
+  "dateModified": "2022-07-19",
+  "datePublished": "2022-07-19"
 }
 
   </script><script>
